@@ -1,6 +1,6 @@
 ﻿namespace MiniProjeto
 {
-    partial class frmProduto
+    partial class frmCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -47,6 +47,7 @@
             this.btoCadastro1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -159,6 +160,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.btoExcluir);
             this.groupBox3.Controls.Add(this.btoLimpar);
             this.groupBox3.Controls.Add(this.btoAlterar);
@@ -239,7 +241,17 @@
             this.txtObs.Size = new System.Drawing.Size(729, 60);
             this.txtObs.TabIndex = 7;
             // 
-            // frmProduto
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(589, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "&Sair";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -247,8 +259,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmProduto";
+            this.Name = "frmCategoria";
             this.Text = "Categoria";
+            this.Load += new System.EventHandler(this.frmCategoria_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -280,5 +293,6 @@
         private Button btoCadastro1;
         private Label label5;
         private TextBox txtObs;
+        private Button button1;
     }
 }

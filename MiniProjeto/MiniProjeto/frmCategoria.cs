@@ -7,7 +7,7 @@ namespace MiniProjeto
 {
     using System.Data;
     using System.Data.SqlClient;
-    public partial class frmProduto : Form
+    public partial class frmCategoria : Form
     {
         string stringConexao = " data source = Localhost; initial Catalog=T13_MiniProjeto;User ID=sa; password=123456";
         private void TestarConexao()
@@ -25,14 +25,14 @@ namespace MiniProjeto
                 Application.Exit();
             }
         }
-        public frmProduto()
+        public frmCategoria()
         {
             InitializeComponent();
         }
 
 
 
-        private void frmCategoria_Load(object sender, EventArgs e)
+        private void frmCategoria_Load_1(object sender, EventArgs e)
         {
             TestarConexao();
         }
@@ -264,6 +264,13 @@ namespace MiniProjeto
             {
                 conn.Close();
             }
+        }
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
