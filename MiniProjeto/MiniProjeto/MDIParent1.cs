@@ -12,45 +12,55 @@ namespace MiniProjeto
 {
     public partial class MDIParent1 : Form
     {
-        private int childFormNumber = 0;
+       
 
         public MDIParent1()
         {
             InitializeComponent();
         }
 
-
-        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MDIParent1_Load(object sender, EventArgs e)
         {
-            frmUsuario frm = new frmUsuario();
-            frm.MdiParent = this;
-            frm.Show();
-            this.Hide();
+
         }
 
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void categoriaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmCliente frm = new frmCliente();
-            frm.MdiParent = this;
-            frm.Show();
+            frmCategoria categoria = new frmCategoria();
+            categoria.MdiParent = this;
+            categoria.Show();
             this.Hide();
+
 
         }
 
         private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProduto frm = new frmProduto();
-            frm.MdiParent = this;
-            frm.Show();
+            frmProduto produto = new frmProduto();
+            produto.MdiParent = this;           
+            produto.Show();
             this.Hide();
+
         }
 
-        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategoria frm = new frmCategoria();
-            frm.MdiParent = this;
-            frm.Show();
+            frmCategoria cliente = new frmCategoria();
+            cliente.MdiParent = this;      
+            cliente.Show();
             this.Hide();
+
         }
+
+        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        frmUsuario usuario = new frmUsuario();
+        usuario.MdiParent = this;
+        usuario.Show();
+        this.Hide();
+
+        }
+
+
     }
 }

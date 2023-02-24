@@ -30,6 +30,7 @@ namespace MiniProjeto
         private void frmProduto_Load(object sender, EventArgs e)
         {
             TestarConexao();
+            ComboBox();
         }
         private bool Validar()
         {
@@ -66,11 +67,11 @@ namespace MiniProjeto
                 return false;
             }
 
-            if (txtCategoria.Text == "")
+            if (cboCategoria.Text == "")
             {
                 MessageBox.Show("Erro, informe a Categoria do produto");
-                txtCategoria.Text = "";
-                txtCategoria.Focus();
+                cboCategoria.Text = "";
+                cboCategoria.Focus();
                 return false;
             }
 
@@ -117,7 +118,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     "'" + txtValorC.Text + "'," +
                     "'" + txtValorV.Text + "'," +
                     "'" + cboStatus.Text + "'" +
-                    "'" + txtCategoria.Text + "'" +
+                    "'" + cboCategoria.Text + "'" +
                     "'" + mtbDataC.Text + "'" +
                     "'" + txtQtde.Text + "'" +
                     "'" + txtDesc.Text + "'" +
@@ -171,7 +172,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     "'" + txtValorC.Text + "'," +
                     "'" + txtValorV.Text + "'," +
                     "'" + cboStatus.Text + "'" +
-                    "'" + txtCategoria.Text + "'" +
+                    "'" + cboCategoria + "'" +
                     "'" + mtbDataC.Text + "'" +
                     "'" + txtQtde.Text + "'" +
                     "'" + txtDesc.Text + "'" +
@@ -195,7 +196,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                         txtValorC.Text = leitura[2].ToString();
                         txtValorV.Text = leitura[3].ToString();
                         cboStatus.SelectedItem = leitura[4].ToString();
-                        txtCategoria.Text = leitura[5].ToString();
+                        cboCategoria.Text = leitura[5].ToString();
                         mtbDataC.Text = leitura[6].ToString();
                         txtQtde.Text = leitura[7].ToString();
                         txtDesc.Text = leitura[8].ToString();
@@ -239,7 +240,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     txtValorC.Text = reader[2].ToString();
                     txtValorV.Text = reader[3].ToString();
                     cboStatus.SelectedItem = reader[4].ToString();
-                    txtCategoria.Text = reader[5].ToString();
+                    cboCategoria.Text = reader[5].ToString();
                     mtbDataC.Text = reader[6].ToString();
                     txtQtde.Text = reader[7].ToString();
                     txtDesc.Text = reader[8].ToString();
@@ -267,7 +268,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
 "ValorCusto_Produto= '" + txtValorC.Text + "'," +
 "ValorVenda_Produto= '" + txtValorV.Text + "'," +
 "status_Produto= '" + cboStatus.Text + "'," +
-"Nome_Categoria_Produto= '" + txtCategoria.Text + "'," +
+"Nome_Categoria_Produto= '" + cboCategoria.Text + "'," +
 "descricao_Produto= '" + mtbDataC.Text + "'," +
 "qtde_Produto= '" + txtQtde.Text + "'," +
 "dataCadastro_Produto= '" + txtDesc.Text + "'," +
@@ -306,7 +307,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
             txtValorC.Text = "";
             txtValorV.Text = "";
             cboStatus.Text = "";
-            txtCategoria.Text = "";
+            cboCategoria.Text = "";
             mtbDataC.Text = "";
             txtQtde.Text = "";
             txtDesc.Text = "";
@@ -320,7 +321,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
             SqlConnection conn = new SqlConnection(stringConexao);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
-            SqlDataReader leitura;
+            SqlDataReader reader;
 
             try
             {
@@ -346,5 +347,50 @@ private void btoCadastro1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
+
+
+        void ComboBox()
+        {
+            string sql = "select id_Categoria, nome_Categoria from Categoria";
+            SqlConnection con = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql,con);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader reader;
+            
+            DataTable tabela = new DataTable();
+            con.Open();
+
+            try
+            {
+                reader = cmd.ExecuteReader();
+
+                tabela.Load(reader);
+                cboCategoria.DisplayMember = "nome_Categoria";
+                cboCategoria.DataSource = tabela;
+
+                tabela.Load(reader);
+                cboIDCate.DisplayMember = "id_Categoria";
+                cboIDCate.DataSource = tabela;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro - " + ex.ToString());
+                Application.Exit();
+            }
+            finally
+            { 
+            con.Close();
+            }
+        }
+       
+
+ 
+
+
+
+
     }
 }

@@ -33,6 +33,9 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.lbl11 = new System.Windows.Forms.Label();
+            this.cboIDCate = new System.Windows.Forms.ComboBox();
             this.txtQtde = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
@@ -44,7 +47,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtValorV = new System.Windows.Forms.TextBox();
             this.txtValorC = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -102,6 +104,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cboCategoria);
+            this.groupBox2.Controls.Add(this.lbl11);
+            this.groupBox2.Controls.Add(this.cboIDCate);
             this.groupBox2.Controls.Add(this.txtQtde);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtObs);
@@ -113,7 +118,6 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtValorV);
             this.groupBox2.Controls.Add(this.txtValorC);
-            this.groupBox2.Controls.Add(this.txtCategoria);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -126,9 +130,40 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // cboCategoria
+            // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(17, 76);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(274, 23);
+            this.cboCategoria.TabIndex = 25;
+            // 
+            // lbl11
+            // 
+            this.lbl11.AutoSize = true;
+            this.lbl11.Location = new System.Drawing.Point(297, 58);
+            this.lbl11.Name = "lbl11";
+            this.lbl11.Size = new System.Drawing.Size(72, 15);
+            this.lbl11.TabIndex = 24;
+            this.lbl11.Text = "ID Categoria";
+            // 
+            // cboIDCate
+            // 
+            this.cboIDCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIDCate.FormattingEnabled = true;
+            this.cboIDCate.Items.AddRange(new object[] {
+            "Disponível",
+            "Indisponível"});
+            this.cboIDCate.Location = new System.Drawing.Point(297, 76);
+            this.cboIDCate.Name = "cboIDCate";
+            this.cboIDCate.Size = new System.Drawing.Size(142, 23);
+            this.cboIDCate.TabIndex = 23;
+
+            // 
             // txtQtde
             // 
-            this.txtQtde.Location = new System.Drawing.Point(445, 76);
+            this.txtQtde.Location = new System.Drawing.Point(589, 76);
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(138, 23);
             this.txtQtde.TabIndex = 22;
@@ -172,7 +207,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(445, 58);
+            this.label8.Location = new System.Drawing.Point(589, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 15);
             this.label8.TabIndex = 17;
@@ -181,7 +216,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(297, 58);
+            this.label7.Location = new System.Drawing.Point(441, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 15);
             this.label7.TabIndex = 15;
@@ -189,10 +224,11 @@
             // 
             // mtbDataC
             // 
-            this.mtbDataC.Location = new System.Drawing.Point(297, 76);
+            this.mtbDataC.Location = new System.Drawing.Point(445, 76);
             this.mtbDataC.Mask = "__/__/____";
             this.mtbDataC.Name = "mtbDataC";
-            this.mtbDataC.Size = new System.Drawing.Size(142, 23);
+            this.mtbDataC.ReadOnly = true;
+            this.mtbDataC.Size = new System.Drawing.Size(138, 23);
             this.mtbDataC.TabIndex = 5;
             // 
             // label6
@@ -217,13 +253,7 @@
             this.txtValorC.Name = "txtValorC";
             this.txtValorC.Size = new System.Drawing.Size(142, 23);
             this.txtValorC.TabIndex = 1;
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(17, 76);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(274, 23);
-            this.txtCategoria.TabIndex = 4;
+
             // 
             // label5
             // 
@@ -358,7 +388,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(830, 475);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -389,7 +419,6 @@
         private Label label6;
         private TextBox txtValorV;
         private TextBox txtValorC;
-        private TextBox txtCategoria;
         private Label label5;
         private Label label4;
         private Label label3;
@@ -406,5 +435,8 @@
         private Button btoCadastro2;
         private Button btoCadastro1;
         private TextBox txtQtde;
+        private ComboBox cboCategoria;
+        private Label lbl11;
+        private ComboBox cboIDCate;
     }
 }

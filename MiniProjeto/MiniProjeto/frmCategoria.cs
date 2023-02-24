@@ -101,10 +101,10 @@ namespace MiniProjeto
             {
                 string sql = "insert into Categoria" +
                     "(" +
-                    "Nome_Categoria," +
-                    "Descricao_Categoria," +
-                    "Status_Categoria," +
-                    "Obs_Categoria" +
+                    "nome_Categoria," +
+                    "descricao_Categoria," +
+                    "status_Categoria," +
+                    "obs_Categoria" +
                     ")" +
                     "Values" +
                     "(" +
@@ -231,6 +231,7 @@ namespace MiniProjeto
 
         private void btoLimpar_Click(object sender, EventArgs e)
         {
+            txtCodigo.Text = "";
             txtNome.Text = "";
             cboStatus.SelectedIndex = -1;
             txtDesc.Text = "";

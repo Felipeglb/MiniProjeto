@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btoExcluir = new System.Windows.Forms.Button();
             this.btoLimpar = new System.Windows.Forms.Button();
             this.btoAlterar = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.btoCadastro1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -174,6 +174,16 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(589, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "&Sair";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btoExcluir
             // 
             this.btoExcluir.Location = new System.Drawing.Point(508, 100);
@@ -240,16 +250,6 @@
             this.txtObs.Name = "txtObs";
             this.txtObs.Size = new System.Drawing.Size(729, 60);
             this.txtObs.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(589, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "&Sair";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmCategoria
             // 
