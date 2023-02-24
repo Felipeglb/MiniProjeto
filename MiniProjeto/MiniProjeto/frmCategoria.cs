@@ -267,11 +267,9 @@ namespace MiniProjeto
             }
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btoSair_Click(object sender, EventArgs e)
         {
             this.Close();
         }
     }
-}
+    }

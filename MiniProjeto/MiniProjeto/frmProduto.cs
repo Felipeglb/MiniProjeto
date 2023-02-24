@@ -93,11 +93,37 @@ namespace MiniProjeto
             }
             return true;
         }
+
+        void Limpar()
+        {
+            txtCodigo.Text = "";
+            txtNome.Text = "";
+            txtValorC.Text = "";
+            txtValorV.Text = "";
+            cboStatus.Text = "";
+            cboCategoria.Text = "";
+            mtbDataC.Text = "";
+            txtQtde.Text = "";
+            txtDesc.Text = "";
+            txtObs.Text = "";
+        }
         
 
 
 private void btoCadastro1_Click(object sender, EventArgs e)
         {
+            string vCusto = txtValorC.Text;
+                                                //R$ 1.000,00
+            vCusto = vCusto.Replace("R$ ",""); //1.000,00
+            vCusto = vCusto.Replace(".", ""); //1000,00
+            vCusto = vCusto.Replace(',', '.');//1000.00
+
+            string vVenda = txtValorV.Text;
+                                                //R$ 1.000,00
+            vVenda = vVenda.Replace("R$ ", ""); //1.000,00
+            vVenda = vVenda.Replace(".", "");   //1000,00
+            vVenda = vVenda.Replace(",", "."); //1000.00
+
             if (Validar())
             {
                 string sql = "insert into Produto" +
@@ -115,8 +141,8 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     "Values" +
                     "(" +
                     "'" + txtNome.Text + "'," +
-                    "'" + txtValorC.Text + "'," +
-                    "'" + txtValorV.Text + "'," +
+                    "'" + vCusto + "'," +
+                    "'" + vVenda + "'," +
                     "'" + cboStatus.Text + "'" +
                     "'" + cboCategoria.Text + "'" +
                     "'" + mtbDataC.Text + "'" +
@@ -152,6 +178,18 @@ private void btoCadastro1_Click(object sender, EventArgs e)
 
         private void btoCadastro2_Click(object sender, EventArgs e)
         {
+            string vCusto = txtValorC.Text;
+                                                 //R$ 1.000,00
+            vCusto = vCusto.Replace("R$ ", ""); //1.000,00
+            vCusto = vCusto.Replace(".", ""); //1000,00
+            vCusto = vCusto.Replace(',', '.');//1000.00
+
+            string vVenda = txtValorV.Text;
+                                                 //R$ 1.000,00
+            vVenda = vVenda.Replace("R$ ", ""); //1.000,00
+            vVenda = vVenda.Replace(".", "");   //1000,00
+            vVenda = vVenda.Replace(",", "."); //1000.00
+            
             if (Validar())
             {
                 string sql = "insert into Usuario  " +
@@ -169,8 +207,8 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     "Values" +
                     "(" +
                     "'" + txtNome.Text + "'," +
-                    "'" + txtValorC.Text + "'," +
-                    "'" + txtValorV.Text + "'," +
+                    "'" + vCusto + "'," +
+                    "'" + vVenda + "'," +
                     "'" + cboStatus.Text + "'" +
                     "'" + cboCategoria + "'" +
                     "'" + mtbDataC.Text + "'" +
@@ -181,32 +219,19 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                 SqlConnection conn = new SqlConnection(stringConexao);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.CommandType = CommandType.Text;
-                SqlDataReader leitura;
+                SqlDataReader reader;
                 conn.Open();
 
                 try
                 {
-                    leitura = cmd.ExecuteReader();
-                    if (leitura.Read())
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
                     {
-                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + leitura[0].ToString());
-                        txtCodigo.Text = leitura[0].ToString();
-
-                        txtNome.Text = leitura[1].ToString();
-                        txtValorC.Text = leitura[2].ToString();
-                        txtValorV.Text = leitura[3].ToString();
-                        cboStatus.SelectedItem = leitura[4].ToString();
-                        cboCategoria.Text = leitura[5].ToString();
-                        mtbDataC.Text = leitura[6].ToString();
-                        txtQtde.Text = leitura[7].ToString();
-                        txtDesc.Text = leitura[8].ToString();
-                        txtObs.Text = leitura[9].ToString();
-
-
-
-
-
+                        Limpar();
+                        txtCodigo.Text = reader[0].ToString();
                         btoPesquisar.PerformClick();
+                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + reader[0].ToString());
+                                             
                     }
                 }
 
@@ -278,7 +303,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
             SqlConnection conn = new SqlConnection(stringConexao);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
-            SqlDataReader leitura;
+            SqlDataReader reader;
 
 
             try
@@ -303,15 +328,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
 
         private void btoLimpar_Click(object sender, EventArgs e)
         {
-            txtNome.Text = "";
-            txtValorC.Text = "";
-            txtValorV.Text = "";
-            cboStatus.Text = "";
-            cboCategoria.Text = "";
-            mtbDataC.Text = "";
-            txtQtde.Text = "";
-            txtDesc.Text = "";
-            txtObs.Text = "";
+            Limpar();
         }
 
         private void btoExcluir_Click(object sender, EventArgs e)
