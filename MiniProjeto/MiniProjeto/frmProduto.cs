@@ -210,12 +210,14 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     "'" + vCusto + "'," +
                     "'" + vVenda + "'," +
                     "'" + cboStatus.Text + "'" +
-                    "'" + cboCategoria + "'" +
+                   "'" + cboCategoria + "'" + 
+                   "'" + cboIDCate.Text + "'" +                 
                     "'" + mtbDataC.Text + "'" +
                     "'" + txtQtde.Text + "'" +
                     "'" + txtDesc.Text + "'" +
                     "'" + txtObs.Text + "'" +
-        ") Select SCOPE_Identity()";
+       
+                    ") Select SCOPE_Identity()";
                 SqlConnection conn = new SqlConnection(stringConexao);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.CommandType = CommandType.Text;
@@ -230,8 +232,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                         Limpar();
                         txtCodigo.Text = reader[0].ToString();
                         btoPesquisar.PerformClick();
-                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + reader[0].ToString());
-                                             
+                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + reader[0].ToString());                                           
                     }
                 }
 
@@ -266,10 +267,11 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     txtValorV.Text = reader[3].ToString();
                     cboStatus.SelectedItem = reader[4].ToString();
                     cboCategoria.Text = reader[5].ToString();
-                    mtbDataC.Text = reader[6].ToString();
-                    txtQtde.Text = reader[7].ToString();
-                    txtDesc.Text = reader[8].ToString();
-                    txtObs.Text = reader[9].ToString();
+                    cboIDCate.Text = reader[6].ToString();
+                    mtbDataC.Text = reader[7].ToString();
+                    txtQtde.Text = reader[8].ToString();
+                    txtDesc.Text = reader[9].ToString();
+                    txtObs.Text = reader[10].ToString();
                 }
                 else
                 {
