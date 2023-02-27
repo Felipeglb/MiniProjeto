@@ -29,7 +29,9 @@ namespace MiniProjeto
 
         private void frmProduto_Load(object sender, EventArgs e)
         {
+
             TestarConexao();
+            CarregarDataGrid();
             ComboBox();
         }
         private bool Validar()
@@ -83,7 +85,7 @@ namespace MiniProjeto
                 mtbDataC.Focus();
                 return false;
             }
-            
+
             if (txtQtde.Text == "")
             {
                 MessageBox.Show("Erro, informe a Quantidade do Produto disponível");
@@ -107,19 +109,49 @@ namespace MiniProjeto
             txtDesc.Text = "";
             txtObs.Text = "";
         }
-        
 
+        void CarregarDataGrid()
+        {
+            string sql = "select codigo_Produto as 'ID'," +
+       "nome_Produto as 'Nome'," +
+       "ValorVenda as 'Valor Venda'," +
+       "qtde_Produto as 'Qtde'," +
+       "Status_Produto as 'Status'," +
+       "from Produto where nome_Produto like '%" + txtNome.Text + "%'";
+            SqlConnection connection = new SqlConnection(stringConexao);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
 
-private void btoCadastro1_Click(object sender, EventArgs e)
+            try
+            {
+                adapter.Fill(ds);
+                dataGridProduto.DataSource = ds.Tables[0];
+                dataGridProduto.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridProduto.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void btoCadastro1_Click(object sender, EventArgs e)
         {
             string vCusto = txtValorC.Text;
-                                                //R$ 1.000,00
-            vCusto = vCusto.Replace("R$ ",""); //1.000,00
+            //R$ 1.000,00
+            vCusto = vCusto.Replace("R$ ", ""); //1.000,00
             vCusto = vCusto.Replace(".", ""); //1000,00
             vCusto = vCusto.Replace(',', '.');//1000.00
 
             string vVenda = txtValorV.Text;
-                                                //R$ 1.000,00
+            //R$ 1.000,00
             vVenda = vVenda.Replace("R$ ", ""); //1.000,00
             vVenda = vVenda.Replace(".", "");   //1000,00
             vVenda = vVenda.Replace(",", "."); //1000.00
@@ -171,7 +203,9 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                 }
                 finally
                 {
+                    CarregarDataGrid();
                     conn.Close();
+
                 }
             }
         }
@@ -179,17 +213,17 @@ private void btoCadastro1_Click(object sender, EventArgs e)
         private void btoCadastro2_Click(object sender, EventArgs e)
         {
             string vCusto = txtValorC.Text;
-                                                 //R$ 1.000,00
+            //R$ 1.000,00
             vCusto = vCusto.Replace("R$ ", ""); //1.000,00
             vCusto = vCusto.Replace(".", ""); //1000,00
             vCusto = vCusto.Replace(',', '.');//1000.00
 
             string vVenda = txtValorV.Text;
-                                                 //R$ 1.000,00
+            //R$ 1.000,00
             vVenda = vVenda.Replace("R$ ", ""); //1.000,00
             vVenda = vVenda.Replace(".", "");   //1000,00
             vVenda = vVenda.Replace(",", "."); //1000.00
-            
+
             if (Validar())
             {
                 string sql = "insert into Usuario  " +
@@ -210,13 +244,13 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                     "'" + vCusto + "'," +
                     "'" + vVenda + "'," +
                     "'" + cboStatus.Text + "'" +
-                   "'" + cboCategoria + "'" + 
-                   "'" + cboIDCate.Text + "'" +                 
+                   "'" + cboCategoria + "'" +
+                   "'" + cboIDCate.Text + "'" +
                     "'" + mtbDataC.Text + "'" +
                     "'" + txtQtde.Text + "'" +
                     "'" + txtDesc.Text + "'" +
                     "'" + txtObs.Text + "'" +
-       
+
                     ") Select SCOPE_Identity()";
                 SqlConnection conn = new SqlConnection(stringConexao);
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -232,7 +266,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                         Limpar();
                         txtCodigo.Text = reader[0].ToString();
                         btoPesquisar.PerformClick();
-                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + reader[0].ToString());                                           
+                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + reader[0].ToString());
                     }
                 }
 
@@ -242,6 +276,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                 }
                 finally
                 {
+                    CarregarDataGrid();
                     conn.Close();
                 }
             }
@@ -284,6 +319,7 @@ private void btoCadastro1_Click(object sender, EventArgs e)
             }
             finally
             {
+                CarregarDataGrid();
                 conexao.Close();
             }
         }
@@ -374,10 +410,10 @@ private void btoCadastro1_Click(object sender, EventArgs e)
         {
             string sql = "select id_Categoria, nome_Categoria from Categoria";
             SqlConnection con = new SqlConnection(stringConexao);
-            SqlCommand cmd = new SqlCommand(sql,con);
+            SqlCommand cmd = new SqlCommand(sql, con);
             cmd.CommandType = CommandType.Text;
             SqlDataReader reader;
-            
+
             DataTable tabela = new DataTable();
             con.Open();
 
@@ -400,16 +436,17 @@ private void btoCadastro1_Click(object sender, EventArgs e)
                 Application.Exit();
             }
             finally
-            { 
-            con.Close();
+            {
+                con.Close();
             }
         }
-       
 
- 
-
-
-
-
+        private void dataGridProduto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["codigo_Produto"].Value.ToString();
+            CarregarDataGrid();
+            {
+            }
+        }
     }
 }

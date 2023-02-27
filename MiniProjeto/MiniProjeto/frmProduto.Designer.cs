@@ -33,11 +33,17 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btoSair = new System.Windows.Forms.Button();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.btoExcluir = new System.Windows.Forms.Button();
             this.lbl11 = new System.Windows.Forms.Label();
+            this.btoLimpar = new System.Windows.Forms.Button();
             this.cboIDCate = new System.Windows.Forms.ComboBox();
+            this.btoAlterar = new System.Windows.Forms.Button();
             this.txtQtde = new System.Windows.Forms.TextBox();
+            this.btoCadastro2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.btoCadastro1 = new System.Windows.Forms.Button();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
@@ -54,15 +60,12 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btoSair = new System.Windows.Forms.Button();
-            this.btoExcluir = new System.Windows.Forms.Button();
-            this.btoLimpar = new System.Windows.Forms.Button();
-            this.btoAlterar = new System.Windows.Forms.Button();
-            this.btoCadastro2 = new System.Windows.Forms.Button();
-            this.btoCadastro1 = new System.Windows.Forms.Button();
+            this.txtNomePesquisa = new System.Windows.Forms.TextBox();
+            this.dataGridProduto = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -72,7 +75,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(7, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(781, 66);
+            this.groupBox1.Size = new System.Drawing.Size(974, 53);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -104,11 +107,17 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btoSair);
             this.groupBox2.Controls.Add(this.cboCategoria);
+            this.groupBox2.Controls.Add(this.btoExcluir);
             this.groupBox2.Controls.Add(this.lbl11);
+            this.groupBox2.Controls.Add(this.btoLimpar);
             this.groupBox2.Controls.Add(this.cboIDCate);
+            this.groupBox2.Controls.Add(this.btoAlterar);
             this.groupBox2.Controls.Add(this.txtQtde);
+            this.groupBox2.Controls.Add(this.btoCadastro2);
             this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.btoCadastro1);
             this.groupBox2.Controls.Add(this.txtObs);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtDesc);
@@ -124,11 +133,21 @@
             this.groupBox2.Controls.Add(this.cboStatus);
             this.groupBox2.Controls.Add(this.txtNome);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(7, 84);
+            this.groupBox2.Location = new System.Drawing.Point(7, 67);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(781, 277);
+            this.groupBox2.Size = new System.Drawing.Size(974, 286);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // btoSair
+            // 
+            this.btoSair.Location = new System.Drawing.Point(619, 257);
+            this.btoSair.Name = "btoSair";
+            this.btoSair.Size = new System.Drawing.Size(75, 23);
+            this.btoSair.TabIndex = 14;
+            this.btoSair.Text = "&Sair";
+            this.btoSair.UseVisualStyleBackColor = true;
+            this.btoSair.Click += new System.EventHandler(this.btoSair_Click);
             // 
             // cboCategoria
             // 
@@ -139,6 +158,16 @@
             this.cboCategoria.Size = new System.Drawing.Size(274, 23);
             this.cboCategoria.TabIndex = 25;
             // 
+            // btoExcluir
+            // 
+            this.btoExcluir.Location = new System.Drawing.Point(538, 257);
+            this.btoExcluir.Name = "btoExcluir";
+            this.btoExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btoExcluir.TabIndex = 13;
+            this.btoExcluir.Text = "&Excluir";
+            this.btoExcluir.UseVisualStyleBackColor = true;
+            this.btoExcluir.Click += new System.EventHandler(this.btoExcluir_Click);
+            // 
             // lbl11
             // 
             this.lbl11.AutoSize = true;
@@ -147,6 +176,16 @@
             this.lbl11.Size = new System.Drawing.Size(72, 15);
             this.lbl11.TabIndex = 24;
             this.lbl11.Text = "ID Categoria";
+            // 
+            // btoLimpar
+            // 
+            this.btoLimpar.Location = new System.Drawing.Point(457, 257);
+            this.btoLimpar.Name = "btoLimpar";
+            this.btoLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btoLimpar.TabIndex = 12;
+            this.btoLimpar.Text = "&Limpar";
+            this.btoLimpar.UseVisualStyleBackColor = true;
+            this.btoLimpar.Click += new System.EventHandler(this.btoLimpar_Click);
             // 
             // cboIDCate
             // 
@@ -159,14 +198,33 @@
             this.cboIDCate.Name = "cboIDCate";
             this.cboIDCate.Size = new System.Drawing.Size(142, 23);
             this.cboIDCate.TabIndex = 23;
-
+            // 
+            // btoAlterar
+            // 
+            this.btoAlterar.Location = new System.Drawing.Point(376, 257);
+            this.btoAlterar.Name = "btoAlterar";
+            this.btoAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btoAlterar.TabIndex = 11;
+            this.btoAlterar.Text = "&Alterar";
+            this.btoAlterar.UseVisualStyleBackColor = true;
+            this.btoAlterar.Click += new System.EventHandler(this.btoAlterar_Click);
             // 
             // txtQtde
             // 
-            this.txtQtde.Location = new System.Drawing.Point(589, 76);
+            this.txtQtde.Location = new System.Drawing.Point(445, 76);
             this.txtQtde.Name = "txtQtde";
             this.txtQtde.Size = new System.Drawing.Size(138, 23);
             this.txtQtde.TabIndex = 22;
+            // 
+            // btoCadastro2
+            // 
+            this.btoCadastro2.Location = new System.Drawing.Point(295, 257);
+            this.btoCadastro2.Name = "btoCadastro2";
+            this.btoCadastro2.Size = new System.Drawing.Size(75, 23);
+            this.btoCadastro2.TabIndex = 10;
+            this.btoCadastro2.Text = "&Cadastro2";
+            this.btoCadastro2.UseVisualStyleBackColor = true;
+            this.btoCadastro2.Click += new System.EventHandler(this.btoCadastro2_Click);
             // 
             // label10
             // 
@@ -177,13 +235,23 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Observação";
             // 
+            // btoCadastro1
+            // 
+            this.btoCadastro1.Location = new System.Drawing.Point(214, 257);
+            this.btoCadastro1.Name = "btoCadastro1";
+            this.btoCadastro1.Size = new System.Drawing.Size(75, 23);
+            this.btoCadastro1.TabIndex = 9;
+            this.btoCadastro1.Text = "&Cadastro";
+            this.btoCadastro1.UseVisualStyleBackColor = true;
+            this.btoCadastro1.Click += new System.EventHandler(this.btoCadastro1_Click);
+            // 
             // txtObs
             // 
             this.txtObs.Location = new System.Drawing.Point(17, 198);
             this.txtObs.MaxLength = 255;
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(710, 53);
+            this.txtObs.Size = new System.Drawing.Size(854, 53);
             this.txtObs.TabIndex = 8;
             // 
             // label9
@@ -201,13 +269,13 @@
             this.txtDesc.MaxLength = 255;
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(710, 54);
+            this.txtDesc.Size = new System.Drawing.Size(854, 54);
             this.txtDesc.TabIndex = 7;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(589, 58);
+            this.label8.Location = new System.Drawing.Point(445, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 15);
             this.label8.TabIndex = 17;
@@ -216,7 +284,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(441, 58);
+            this.label7.Location = new System.Drawing.Point(589, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 15);
             this.label7.TabIndex = 15;
@@ -224,8 +292,8 @@
             // 
             // mtbDataC
             // 
-            this.mtbDataC.Location = new System.Drawing.Point(445, 76);
-            this.mtbDataC.Mask = "__/__/____";
+            this.mtbDataC.Location = new System.Drawing.Point(589, 32);
+            this.mtbDataC.Mask = "  /  /    ";
             this.mtbDataC.Name = "mtbDataC";
             this.mtbDataC.ReadOnly = true;
             this.mtbDataC.Size = new System.Drawing.Size(138, 23);
@@ -253,7 +321,6 @@
             this.txtValorC.Name = "txtValorC";
             this.txtValorC.Size = new System.Drawing.Size(142, 23);
             this.txtValorC.TabIndex = 1;
-
             // 
             // label5
             // 
@@ -276,7 +343,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(589, 14);
+            this.label3.Location = new System.Drawing.Point(733, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 3;
@@ -289,7 +356,7 @@
             this.cboStatus.Items.AddRange(new object[] {
             "Disponível",
             "Indisponível"});
-            this.cboStatus.Location = new System.Drawing.Point(589, 32);
+            this.cboStatus.Location = new System.Drawing.Point(733, 32);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(138, 23);
             this.cboStatus.TabIndex = 3;
@@ -312,83 +379,36 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btoSair);
-            this.groupBox3.Controls.Add(this.btoExcluir);
-            this.groupBox3.Controls.Add(this.btoLimpar);
-            this.groupBox3.Controls.Add(this.btoAlterar);
-            this.groupBox3.Controls.Add(this.btoCadastro2);
-            this.groupBox3.Controls.Add(this.btoCadastro1);
-            this.groupBox3.Location = new System.Drawing.Point(7, 367);
+            this.groupBox3.Controls.Add(this.txtNomePesquisa);
+            this.groupBox3.Controls.Add(this.dataGridProduto);
+            this.groupBox3.Location = new System.Drawing.Point(7, 359);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(781, 52);
+            this.groupBox3.Size = new System.Drawing.Size(974, 168);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
-            // btoSair
+            // txtNomePesquisa
             // 
-            this.btoSair.Location = new System.Drawing.Point(555, 13);
-            this.btoSair.Name = "btoSair";
-            this.btoSair.Size = new System.Drawing.Size(75, 23);
-            this.btoSair.TabIndex = 5;
-            this.btoSair.Text = "&Sair";
-            this.btoSair.UseVisualStyleBackColor = true;
-            this.btoSair.Click += new System.EventHandler(this.btoSair_Click);
+            this.txtNomePesquisa.Location = new System.Drawing.Point(12, 13);
+            this.txtNomePesquisa.Name = "txtNomePesquisa";
+            this.txtNomePesquisa.Size = new System.Drawing.Size(414, 23);
+            this.txtNomePesquisa.TabIndex = 0;
             // 
-            // btoExcluir
+            // dataGridProduto
             // 
-            this.btoExcluir.Location = new System.Drawing.Point(474, 13);
-            this.btoExcluir.Name = "btoExcluir";
-            this.btoExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btoExcluir.TabIndex = 4;
-            this.btoExcluir.Text = "&Excluir";
-            this.btoExcluir.UseVisualStyleBackColor = true;
-            this.btoExcluir.Click += new System.EventHandler(this.btoExcluir_Click);
-            // 
-            // btoLimpar
-            // 
-            this.btoLimpar.Location = new System.Drawing.Point(393, 13);
-            this.btoLimpar.Name = "btoLimpar";
-            this.btoLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btoLimpar.TabIndex = 3;
-            this.btoLimpar.Text = "&Limpar";
-            this.btoLimpar.UseVisualStyleBackColor = true;
-            this.btoLimpar.Click += new System.EventHandler(this.btoLimpar_Click);
-            // 
-            // btoAlterar
-            // 
-            this.btoAlterar.Location = new System.Drawing.Point(312, 13);
-            this.btoAlterar.Name = "btoAlterar";
-            this.btoAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btoAlterar.TabIndex = 2;
-            this.btoAlterar.Text = "&Alterar";
-            this.btoAlterar.UseVisualStyleBackColor = true;
-            this.btoAlterar.Click += new System.EventHandler(this.btoAlterar_Click);
-            // 
-            // btoCadastro2
-            // 
-            this.btoCadastro2.Location = new System.Drawing.Point(231, 13);
-            this.btoCadastro2.Name = "btoCadastro2";
-            this.btoCadastro2.Size = new System.Drawing.Size(75, 23);
-            this.btoCadastro2.TabIndex = 1;
-            this.btoCadastro2.Text = "&Cadastro2";
-            this.btoCadastro2.UseVisualStyleBackColor = true;
-            this.btoCadastro2.Click += new System.EventHandler(this.btoCadastro2_Click);
-            // 
-            // btoCadastro1
-            // 
-            this.btoCadastro1.Location = new System.Drawing.Point(150, 13);
-            this.btoCadastro1.Name = "btoCadastro1";
-            this.btoCadastro1.Size = new System.Drawing.Size(75, 23);
-            this.btoCadastro1.TabIndex = 0;
-            this.btoCadastro1.Text = "&Cadastro";
-            this.btoCadastro1.UseVisualStyleBackColor = true;
-            this.btoCadastro1.Click += new System.EventHandler(this.btoCadastro1_Click);
+            this.dataGridProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridProduto.Location = new System.Drawing.Point(12, 42);
+            this.dataGridProduto.Name = "dataGridProduto";
+            this.dataGridProduto.RowTemplate.Height = 25;
+            this.dataGridProduto.Size = new System.Drawing.Size(859, 105);
+            this.dataGridProduto.TabIndex = 0;
+            this.dataGridProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduto_CellClick);
             // 
             // frmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 475);
+            this.ClientSize = new System.Drawing.Size(993, 532);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -400,6 +420,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -438,5 +460,7 @@
         private ComboBox cboCategoria;
         private Label lbl11;
         private ComboBox cboIDCate;
+        private TextBox txtNomePesquisa;
+        private DataGridView dataGridProduto;
     }
 }
