@@ -51,7 +51,7 @@
             this.dataGridUsuarioPesquisa.RowTemplate.Height = 25;
             this.dataGridUsuarioPesquisa.Size = new System.Drawing.Size(1027, 390);
             this.dataGridUsuarioPesquisa.TabIndex = 2;
-            this.dataGridUsuarioPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsuarioPesquisa_CellContentClick);
+            this.dataGridUsuarioPesquisa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsuarioPesquisa_CellDoubleClick);
             // 
             // txtNomePesquisa
             // 
@@ -59,6 +59,7 @@
             this.txtNomePesquisa.Name = "txtNomePesquisa";
             this.txtNomePesquisa.Size = new System.Drawing.Size(295, 23);
             this.txtNomePesquisa.TabIndex = 3;
+            this.txtNomePesquisa.TextChanged += new System.EventHandler(this.txtNomePesquisa_TextChanged);
             // 
             // frmUsuarioPesquisa
             // 
