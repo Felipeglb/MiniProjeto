@@ -34,11 +34,12 @@ namespace MiniProjeto
 
         private void frmCategoria_Load_1(object sender, EventArgs e)
         {
+            CarregarDataGrid();
             TestarConexao();
         }
         private bool Validar()
         {
-            if (txtNome.Text =="" ) 
+            if (txtNome.Text == "")
             {
                 MessageBox.Show("Erro, o nome da Categoria deve ser inserido");
                 txtNome.Text = "";
@@ -46,7 +47,7 @@ namespace MiniProjeto
                 return false;
             }
 
-            if (cboStatus.Text == "") 
+            if (cboStatus.Text == "")
             {
                 MessageBox.Show("Erro, o campo Status deve ser preenchido");
                 cboStatus.SelectedIndex = -1;
@@ -76,8 +77,8 @@ namespace MiniProjeto
                     cboStatus.SelectedItem = reader[3].ToString();
                     txtObs.Text = reader[4].ToString();
                 }
-                
-                    
+
+
                 else
                 {
                     MessageBox.Show("Categoria inexistente");
@@ -134,6 +135,7 @@ namespace MiniProjeto
                 }
                 finally
                 {
+                    CarregarDataGrid();
                     conn.Close();
                 }
             }
@@ -189,6 +191,7 @@ namespace MiniProjeto
                 }
                 finally
                 {
+                    CarregarDataGrid();
                     conn.Close();
                 }
             }
@@ -225,6 +228,7 @@ namespace MiniProjeto
             }
             finally
             {
+                CarregarDataGrid();
                 conn.Close();
             }
         }
@@ -263,6 +267,7 @@ namespace MiniProjeto
             }
             finally
             {
+                CarregarDataGrid();
                 conn.Close();
             }
         }
@@ -271,5 +276,42 @@ namespace MiniProjeto
         {
             this.Close();
         }
+        void CarregarDataGrid()
+        {
+            string sql = "select id_Categoria as 'ID'," +
+       "nome_Categoria as 'Categoria'," +
+       "Status_Categoria as 'Status'," +
+
+
+       "from Categoria where nome_Categoria like '%" + txtNome.Text + "%'";
+            SqlConnection connection = new SqlConnection(stringConexao);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
+
+            try
+            {
+                adapter.Fill(ds);
+                dataGridCategoria.DataSource = ds.Tables[0];
+                dataGridCategoria.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridCategoria.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void dataGridCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = dataGridCategoria.CurrentRow.Cells["id_Categoria"].Value.ToString();
+            CarregarDataGrid();
+        }
     }
-    }
+}

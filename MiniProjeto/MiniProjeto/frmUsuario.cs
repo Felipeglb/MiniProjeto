@@ -1,6 +1,6 @@
 
 namespace MiniProjeto
- 
+
 {
     using System.Data;
     using System.Data.SqlClient;
@@ -9,16 +9,18 @@ namespace MiniProjeto
     {
         string stringConexao = " data source = Localhost; initial Catalog=T13_MiniProjeto;User ID=sa; password=123456";
         private void TestarConexao()
-        { SqlConnection conn = new SqlConnection(stringConexao); 
+        {
+            SqlConnection conn = new SqlConnection(stringConexao);
 
             try
-            { conn.Open ();
-              conn.Close();  
-            }
-            catch (Exception ex) 
             {
-                MessageBox.Show("Erro: " + ex.ToString());  
-                Application.Exit ();
+                conn.Open();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+                Application.Exit();
             }
         }
         public frmUsuario()
@@ -51,7 +53,7 @@ namespace MiniProjeto
                 return false;
             }
 
-            if (txtSenha.Text == "") 
+            if (txtSenha.Text == "")
             {
                 MessageBox.Show("Erro, o campo Senha deve ser preenchido");
                 txtSenha.Text = "";
@@ -59,7 +61,7 @@ namespace MiniProjeto
                 return false;
             }
 
-            if (txtConfirmaS.Text != txtSenha.Text) 
+            if (txtConfirmaS.Text != txtSenha.Text)
             {
                 MessageBox.Show("Erro, a Senha deve ser identica nos dois campos deve ser preenchido");
                 txtConfirmaS.Text = "";
@@ -67,7 +69,7 @@ namespace MiniProjeto
                 return false;
             }
 
-            if (cboStatus.Text == "") 
+            if (cboStatus.Text == "")
             {
                 MessageBox.Show("Erro, o campo Status deve ser preenchido");
                 cboStatus.SelectedIndex = -1;
@@ -78,10 +80,10 @@ namespace MiniProjeto
         }
 
 
-            private void btoCadastro_Click(object sender, EventArgs e)
+        private void btoCadastro_Click(object sender, EventArgs e)
+        {
+            if (Validar())
             {
-             if (Validar())
-                {
                 string sql = "insert into Usuario" +
                     "(" +
                     "nome_Usuario," +
@@ -119,13 +121,14 @@ namespace MiniProjeto
                 }
                 finally
                 {
+                    CarregarDataGrid();
                     conn.Close();
                 }
             }
-            }
+        }
 
-            private void btoCadastrar2_Click(object sender, EventArgs e)
-            {
+        private void btoCadastrar2_Click(object sender, EventArgs e)
+        {
             if (Validar())
             {
                 string sql = "insert into Usuario  " +
@@ -178,11 +181,12 @@ namespace MiniProjeto
                 }
                 finally
                 {
+                    CarregarDataGrid();
                     conn.Close();
                 }
             }
-            }
-        
+        }
+
 
 
         private void btoPesquisar_Click(object sender, EventArgs e)
@@ -229,24 +233,24 @@ namespace MiniProjeto
         private void btoAlterar_Click(object sender, EventArgs e)
         {
             string sql = "update  Usuario set " +
-            "nome_Usuario= '" +txtNome.Text+ "'," +
-            "status_Usuario= '" +cboStatus.Text+ "'," +
-            "login_Usuario= '" +txtLogin.Text+ "'," +
-            "senha_Usuario= '" +txtSenha.Text+ "'," +
-            "obs_Usuario= '" +txtObservacao.Text+ "'" +
-            "Where id_Usuario = " +txtCodigo.Text;
+            "nome_Usuario= '" + txtNome.Text + "'," +
+            "status_Usuario= '" + cboStatus.Text + "'," +
+            "login_Usuario= '" + txtLogin.Text + "'," +
+            "senha_Usuario= '" + txtSenha.Text + "'," +
+            "obs_Usuario= '" + txtObservacao.Text + "'" +
+            "Where id_Usuario = " + txtCodigo.Text;
 
             SqlConnection conn = new SqlConnection(stringConexao);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
             SqlDataReader leitura;
-            
+
 
             try
             {
-             conn.Open();
-             int i = cmd.ExecuteNonQuery();
-            if(i==1)
+                conn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i == 1)
                 {
                     MessageBox.Show("Dados Alterados com sucesso");
                 }
@@ -258,6 +262,7 @@ namespace MiniProjeto
             }
             finally
             {
+                CarregarDataGrid();
                 conn.Close();
             }
         }
@@ -305,8 +310,43 @@ namespace MiniProjeto
             }
             finally
             {
+                CarregarDataGrid();
                 conn.Close();
             }
         }
+
+        void CarregarDataGrid()
+        {
+            string sql = "select id_Usuario as 'ID'," +
+       "nome__Usuario as 'Nome'," +
+        "Status_Usuario as 'Status'," +
+       "Login_Usuario as 'Login'," +
+       "from Usuario where nome_Usuario like '%" + txtNome.Text + "%'";
+            SqlConnection connection = new SqlConnection(stringConexao);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
+
+            try
+            {
+                adapter.Fill(ds);
+                dataGridUsuario.DataSource = ds.Tables[0];
+                dataGridUsuario.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridUsuario.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
     }
 }

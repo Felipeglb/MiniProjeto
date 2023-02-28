@@ -112,9 +112,9 @@ namespace MiniProjeto
 
         void CarregarDataGrid()
         {
-            string sql = "select codigo_Produto as 'ID'," +
+            string sql = "select id_Produto as 'ID'," +
        "nome_Produto as 'Nome'," +
-       "ValorVenda as 'Valor Venda'," +
+       "ValorVenda_Produto as 'Valor Venda'," +
        "qtde_Produto as 'Qtde'," +
        "Status_Produto as 'Status'," +
        "from Produto where nome_Produto like '%" + txtNome.Text + "%'";
@@ -394,6 +394,7 @@ namespace MiniProjeto
             }
             finally
             {
+                CarregarDataGrid();
                 conn.Close();
             }
         }
@@ -443,10 +444,11 @@ namespace MiniProjeto
 
         private void dataGridProduto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["codigo_Produto"].Value.ToString();
+            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["id_Produto"].Value.ToString();
             CarregarDataGrid();
-            {
-            }
+
         }
+
+
     }
 }
