@@ -9,7 +9,7 @@ namespace MiniProjeto
     using System.Data.SqlClient;
     public partial class frmCategoria : Form
     {
-        string stringConexao = " data source = Localhost; initial Catalog=T13_MiniProjeto;User ID=sa; password=123456";
+        string stringConexao = frmLogin.stringConexao;
         private void TestarConexao()
         {
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -57,46 +57,67 @@ namespace MiniProjeto
             return true;
         }
 
-        private void btoPesquisar_Click(object sender, EventArgs e)
-        {
-            string sql = "select * from Categoria where id_Categoria =" + txtCodigo.Text;
 
-            SqlConnection conexao = new SqlConnection(stringConexao);
-            SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.CommandType = CommandType.Text;
-            SqlDataReader reader;
-            conexao.Open();
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+        void CarregarDataGrid()
+        {
+            string sql = "select id_Categoria as 'ID'," +
+       "nome_Categoria as 'Categoria'," +
+       "Status_Categoria as 'Status'" +
+
+
+       "from Categoria where nome_Categoria like '%" + textBox1.Text + "%'";
+            SqlConnection connection = new SqlConnection(stringConexao);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
 
             try
             {
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    txtNome.Text = reader[1].ToString();
-                    txtDesc.Text = reader[2].ToString();
-                    cboStatus.SelectedItem = reader[3].ToString();
-                    txtObs.Text = reader[4].ToString();
-                }
+                adapter.Fill(ds);
+                dataGridCategoria.DataSource = ds.Tables[0];
+                dataGridCategoria.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridCategoria.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
 
-
-                else
-                {
-                    MessageBox.Show("Categoria inexistente");
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+
             }
             finally
             {
-                conexao.Close();
+                connection.Close();
             }
-
-
         }
 
-        private void btoCadastro1_Click(object sender, EventArgs e)
+
+
+
+
+        private void frmCategoria_Load(object sender, EventArgs e)
+        {
+            TestarConexao();
+            CarregarDataGrid();
+        }
+
+        private void btoSair_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btoCadastro2_Click_1(object sender, EventArgs e)
         {
             if (Validar())
             {
@@ -141,63 +162,7 @@ namespace MiniProjeto
             }
         }
 
-        private void btoCadastro2_Click(object sender, EventArgs e)
-        {
-            if (Validar())
-            {
-                string sql = "insert into Categoria" +
-                    "(" +
-                    "Nome_Categoria," +
-                    "Descricao_Categoria," +
-                    "Status_Categoria," +
-                    "Obs_Categoria" +
-                    ")" +
-                    "Values" +
-                    "(" +
-                    "'" + txtNome.Text + "'," +
-                    "'" + txtDesc.Text + "'," +
-                    "'" + cboStatus.Text + "'," +
-                    "'" + txtObs.Text + "'" +
-                    ") Select SCOPE_Identity()";
-
-                SqlConnection conn = new SqlConnection(stringConexao);
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.CommandType = CommandType.Text;
-                SqlDataReader leitura;
-                conn.Open();
-                try
-                {
-                    leitura = cmd.ExecuteReader();
-                    if (leitura.Read())
-                    {
-                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + leitura[0].ToString());
-                        txtCodigo.Text = leitura[0].ToString();
-                        txtNome.Text = leitura[1].ToString();
-                        txtDesc.Text = leitura[2].ToString();
-                        cboStatus.SelectedItem = leitura[3].ToString();
-                        txtObs.Text = leitura[4].ToString();
-
-
-
-
-
-                        btoPesquisar.PerformClick();
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro: " + ex.ToString());
-                }
-                finally
-                {
-                    CarregarDataGrid();
-                    conn.Close();
-                }
-            }
-        }
-
-        private void btoAlterar_Click(object sender, EventArgs e)
+        private void btoAlterar_Click_1(object sender, EventArgs e)
         {
             string sql = "update  Categoria set " +
 "nome_Categoria= '" + txtNome.Text + "'," +
@@ -233,13 +198,9 @@ namespace MiniProjeto
             }
         }
 
-        private void btoLimpar_Click(object sender, EventArgs e)
+        private void btoCadastro1_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text = "";
-            txtNome.Text = "";
-            cboStatus.SelectedIndex = -1;
-            txtDesc.Text = "";
-            txtObs.Text = "";
+
         }
 
         private void btoExcluir_Click(object sender, EventArgs e)
@@ -272,42 +233,6 @@ namespace MiniProjeto
             }
         }
 
-        private void btoSair_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        void CarregarDataGrid()
-        {
-            string sql = "select id_Categoria as 'ID'," +
-       "nome_Categoria as 'Categoria'," +
-       "Status_Categoria as 'Status'," +
-
-
-       "from Categoria where nome_Categoria like '%" + txtNome.Text + "%'";
-            SqlConnection connection = new SqlConnection(stringConexao);
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-            DataSet ds = new DataSet();
-            connection.Open();
-
-            try
-            {
-                adapter.Fill(ds);
-                dataGridCategoria.DataSource = ds.Tables[0];
-                dataGridCategoria.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                dataGridCategoria.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
         private void dataGridCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtCodigo.Text = dataGridCategoria.CurrentRow.Cells["id_Categoria"].Value.ToString();
@@ -317,6 +242,44 @@ namespace MiniProjeto
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             CarregarDataGrid();
+        }
+
+        private void btoPesquisar_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from Categoria where id_Categoria =" + txtCodigo.Text;
+
+            SqlConnection conexao = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader reader;
+            conexao.Open();
+
+            try
+            {
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    txtNome.Text = reader[1].ToString();
+                    txtDesc.Text = reader[2].ToString();
+                    cboStatus.SelectedItem = reader[3].ToString();
+                    txtObs.Text = reader[4].ToString();
+                }
+
+
+                else
+                {
+                    MessageBox.Show("Categoria inexistente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
         }
     }
 }

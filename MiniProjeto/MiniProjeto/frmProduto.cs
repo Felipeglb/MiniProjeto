@@ -6,7 +6,7 @@ namespace MiniProjeto
     using System.Data.SqlClient;
     public partial class frmProduto : Form
     {
-        string stringConexao = " data source = Localhost; initial Catalog=T13_MiniProjeto;User ID=sa; password=123456";
+        string stringConexao = frmLogin.stringConexao;
         private void TestarConexao()
         {
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -27,13 +27,7 @@ namespace MiniProjeto
             InitializeComponent();
         }
 
-        private void frmProduto_Load(object sender, EventArgs e)
-        {
 
-            TestarConexao();
-            CarregarDataGrid();
-            ComboBox();
-        }
         private bool Validar()
         {
 
@@ -116,7 +110,7 @@ namespace MiniProjeto
        "nome_Produto as 'Nome'," +
        "ValorVenda_Produto as 'Valor Venda'," +
        "qtde_Produto as 'Qtde'," +
-       "Status_Produto as 'Status'," +
+       "Status_Produto as 'Status'" +
        "from Produto where nome_Produto like '%" + txtNome.Text + "%'";
             SqlConnection connection = new SqlConnection(stringConexao);
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
@@ -142,75 +136,62 @@ namespace MiniProjeto
             }
         }
 
-        private void btoCadastro1_Click(object sender, EventArgs e)
+
+
+  
+
+
+
+
+        void ComboBox()
         {
-            string vCusto = txtValorC.Text;
-            //R$ 1.000,00
-            vCusto = vCusto.Replace("R$ ", ""); //1.000,00
-            vCusto = vCusto.Replace(".", ""); //1000,00
-            vCusto = vCusto.Replace(',', '.');//1000.00
+            string sql = "select id_Categoria, nome_Categoria from Categoria";
+            SqlConnection con = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader reader;
 
-            string vVenda = txtValorV.Text;
-            //R$ 1.000,00
-            vVenda = vVenda.Replace("R$ ", ""); //1.000,00
-            vVenda = vVenda.Replace(".", "");   //1000,00
-            vVenda = vVenda.Replace(",", "."); //1000.00
+            DataTable tabela = new DataTable();
+            con.Open();
 
-            if (Validar())
+            try
             {
-                string sql = "insert into Produto" +
-                    "(" +
-                    "Nome_Produto," +
-                    "ValorCusto_Produto," +
-                    "ValorVenda_Produto," +
-                    "Status_Produto," +
-                    "Nome_Categoria_Produto," +
-                    "dataCadastro_Produto," +
-                    "qtde_Produto," +
-                    "descricao_Produto," +
-                    "Obs_Produto" +
-                    ")" +
-                    "Values" +
-                    "(" +
-                    "'" + txtNome.Text + "'," +
-                    "'" + vCusto + "'," +
-                    "'" + vVenda + "'," +
-                    "'" + cboStatus.Text + "'" +
-                    "'" + cboCategoria.Text + "'" +
-                    "'" + mtbDataC.Text + "'" +
-                    "'" + txtQtde.Text + "'" +
-                    "'" + txtDesc.Text + "'" +
-                    "'" + txtObs.Text + "'" +
-                    ")";
+                reader = cmd.ExecuteReader();
 
-                SqlConnection conn = new SqlConnection(stringConexao);
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.CommandType = CommandType.Text;
-                conn.Open();
+                tabela.Load(reader);
+                cboCategoria.DisplayMember = "nome_Categoria";
+                cboCategoria.DataSource = tabela;
 
-                try
-                {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Cadastro realizado com sucesso");
-                    }
-                }
+                tabela.Load(reader);
+                cboIDCate.DisplayMember = "id_Categoria";
+                cboIDCate.DataSource = tabela;
 
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro: " + ex.ToString());
-                }
-                finally
-                {
-                    CarregarDataGrid();
-                    conn.Close();
-
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro - " + ex.ToString());
+                Application.Exit();
+            }
+            finally
+            {
+                con.Close();
             }
         }
 
-        private void btoCadastro2_Click(object sender, EventArgs e)
+
+
+
+
+        private void frmProduto_Load_1(object sender, EventArgs e)
+        {
+
+            TestarConexao();
+            CarregarDataGrid();
+            ComboBox();
+
+        }
+
+        private void btoCadastro2_Click_1(object sender, EventArgs e)
         {
             string vCusto = txtValorC.Text;
             //R$ 1.000,00
@@ -282,49 +263,18 @@ namespace MiniProjeto
             }
         }
 
-        private void btoPesquisar_Click(object sender, EventArgs e)
+        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
         {
-            string sql = "select * from Usuario where id_Produto =" + txtCodigo.Text;
-
-            SqlConnection conexao = new SqlConnection(stringConexao);
-            SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.CommandType = CommandType.Text;
-            SqlDataReader reader;
-            conexao.Open();
-
-            try
-            {
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    txtNome.Text = reader[1].ToString();
-                    txtValorC.Text = reader[2].ToString();
-                    txtValorV.Text = reader[3].ToString();
-                    cboStatus.SelectedItem = reader[4].ToString();
-                    cboCategoria.Text = reader[5].ToString();
-                    cboIDCate.Text = reader[6].ToString();
-                    mtbDataC.Text = reader[7].ToString();
-                    txtQtde.Text = reader[8].ToString();
-                    txtDesc.Text = reader[9].ToString();
-                    txtObs.Text = reader[10].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Código de Produto inexistente");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                CarregarDataGrid();
-                conexao.Close();
-            }
+            CarregarDataGrid();
         }
 
-        private void btoAlterar_Click(object sender, EventArgs e)
+        private void dataGridProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["id_Produto"].Value.ToString();
+            CarregarDataGrid();
+        }
+
+        private void btoAlterar_Click_1(object sender, EventArgs e)
         {
             string sql = "update  Produto set " +
 "nome_Usuario= '" + txtNome.Text + "'," +
@@ -367,9 +317,15 @@ namespace MiniProjeto
         private void btoLimpar_Click(object sender, EventArgs e)
         {
             Limpar();
+
         }
 
-        private void btoExcluir_Click(object sender, EventArgs e)
+        private void btoSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btoExcluir_Click_1(object sender, EventArgs e)
         {
             string sql = "delete from  Usuario Where id_Produto = " + txtCodigo.Text;
 
@@ -399,59 +355,53 @@ namespace MiniProjeto
             }
         }
 
-        private void btoSair_Click(object sender, EventArgs e)
+        private void btoPesquisar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            string sql = "select * from Usuario where id_Produto =" + txtCodigo.Text;
 
-
-
-
-        void ComboBox()
-        {
-            string sql = "select id_Categoria, nome_Categoria from Categoria";
-            SqlConnection con = new SqlConnection(stringConexao);
-            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlConnection conexao = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.CommandType = CommandType.Text;
             SqlDataReader reader;
-
-            DataTable tabela = new DataTable();
-            con.Open();
+            conexao.Open();
 
             try
             {
                 reader = cmd.ExecuteReader();
-
-                tabela.Load(reader);
-                cboCategoria.DisplayMember = "nome_Categoria";
-                cboCategoria.DataSource = tabela;
-
-                tabela.Load(reader);
-                cboIDCate.DisplayMember = "id_Categoria";
-                cboIDCate.DataSource = tabela;
-
+                if (reader.Read())
+                {
+                    txtNome.Text = reader[1].ToString();
+                    txtValorC.Text = reader[2].ToString();
+                    txtValorV.Text = reader[3].ToString();
+                    cboStatus.SelectedItem = reader[4].ToString();
+                    cboCategoria.Text = reader[5].ToString();
+                    cboIDCate.Text = reader[6].ToString();
+                    mtbDataC.Text = reader[7].ToString();
+                    txtQtde.Text = reader[8].ToString();
+                    txtDesc.Text = reader[9].ToString();
+                    txtObs.Text = reader[10].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Código de Produto inexistente");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro - " + ex.ToString());
-                Application.Exit();
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
-                con.Close();
+                CarregarDataGrid();
+                conexao.Close();
             }
         }
 
-        private void dataGridProduto_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["id_Produto"].Value.ToString();
-            CarregarDataGrid();
-
+            ComboBox();
         }
 
-        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
-        {
-            CarregarDataGrid();
-        }
+
     }
 }

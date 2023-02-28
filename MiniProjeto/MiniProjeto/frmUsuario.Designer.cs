@@ -28,321 +28,323 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            btoPesquisar = new Button();
-            txtCodigo = new TextBox();
-            label1 = new Label();
-            btoCadastrar2 = new Button();
-            groupBox2 = new GroupBox();
-            btoSair = new Button();
-            label7 = new Label();
-            btoExcluir = new Button();
-            txtObservacao = new TextBox();
-            btoAlterar = new Button();
-            txtConfirmaS = new TextBox();
-            btoLimpar = new Button();
-            label6 = new Label();
-            btoCadastro = new Button();
-            txtSenha = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            txtLogin = new TextBox();
-            label3 = new Label();
-            cboStatus = new ComboBox();
-            txtNome = new TextBox();
-            label2 = new Label();
-            groupBox3 = new GroupBox();
-            textBox1 = new TextBox();
-            dataGridUsuario = new DataGridView();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridUsuario).BeginInit();
-            SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btoPesquisar = new System.Windows.Forms.Button();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btoCadastrar2 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btoSair = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btoExcluir = new System.Windows.Forms.Button();
+            this.txtObservacao = new System.Windows.Forms.TextBox();
+            this.btoAlterar = new System.Windows.Forms.Button();
+            this.txtConfirmaS = new System.Windows.Forms.TextBox();
+            this.btoLimpar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btoCadastro = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridUsuario = new System.Windows.Forms.DataGridView();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUsuario)).BeginInit();
+            this.SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btoPesquisar);
-            groupBox1.Controls.Add(txtCodigo);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(10, 10);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(665, 68);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            this.groupBox1.Controls.Add(this.btoPesquisar);
+            this.groupBox1.Controls.Add(this.txtCodigo);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(10, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(665, 68);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
             // 
             // btoPesquisar
             // 
-            btoPesquisar.Location = new Point(304, 37);
-            btoPesquisar.Name = "btoPesquisar";
-            btoPesquisar.Size = new Size(76, 20);
-            btoPesquisar.TabIndex = 1;
-            btoPesquisar.Text = "&Pesquisar";
-            btoPesquisar.UseVisualStyleBackColor = true;
-            btoPesquisar.Click += btoPesquisar_Click;
+            this.btoPesquisar.Location = new System.Drawing.Point(304, 37);
+            this.btoPesquisar.Name = "btoPesquisar";
+            this.btoPesquisar.Size = new System.Drawing.Size(76, 20);
+            this.btoPesquisar.TabIndex = 1;
+            this.btoPesquisar.Text = "&Pesquisar";
+            this.btoPesquisar.UseVisualStyleBackColor = true;
+            this.btoPesquisar.Click += new System.EventHandler(this.btoPesquisar_Click);
             // 
             // txtCodigo
             // 
-            txtCodigo.Location = new Point(5, 37);
-            txtCodigo.Margin = new Padding(2);
-            txtCodigo.Name = "txtCodigo";
-            txtCodigo.Size = new Size(295, 22);
-            txtCodigo.TabIndex = 0;
+            this.txtCodigo.Location = new System.Drawing.Point(5, 37);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(295, 22);
+            this.txtCodigo.TabIndex = 0;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(5, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 13);
-            label1.TabIndex = 2;
-            label1.Text = "Código";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(5, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Código";
             // 
             // btoCadastrar2
             // 
-            btoCadastrar2.Location = new Point(37, 189);
-            btoCadastrar2.Name = "btoCadastrar2";
-            btoCadastrar2.Size = new Size(81, 26);
-            btoCadastrar2.TabIndex = 13;
-            btoCadastrar2.Text = "&Cadastrar2";
-            btoCadastrar2.UseVisualStyleBackColor = true;
-            btoCadastrar2.Click += btoCadastrar2_Click;
+            this.btoCadastrar2.Location = new System.Drawing.Point(37, 189);
+            this.btoCadastrar2.Name = "btoCadastrar2";
+            this.btoCadastrar2.Size = new System.Drawing.Size(81, 26);
+            this.btoCadastrar2.TabIndex = 13;
+            this.btoCadastrar2.Text = "&Cadastrar2";
+            this.btoCadastrar2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btoCadastrar2);
-            groupBox2.Controls.Add(btoSair);
-            groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(btoExcluir);
-            groupBox2.Controls.Add(txtObservacao);
-            groupBox2.Controls.Add(btoAlterar);
-            groupBox2.Controls.Add(txtConfirmaS);
-            groupBox2.Controls.Add(btoLimpar);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(btoCadastro);
-            groupBox2.Controls.Add(txtSenha);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(txtLogin);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(cboStatus);
-            groupBox2.Controls.Add(txtNome);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Location = new Point(10, 84);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(665, 248);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
+            this.groupBox2.Controls.Add(this.btoCadastrar2);
+            this.groupBox2.Controls.Add(this.btoSair);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.btoExcluir);
+            this.groupBox2.Controls.Add(this.txtObservacao);
+            this.groupBox2.Controls.Add(this.btoAlterar);
+            this.groupBox2.Controls.Add(this.txtConfirmaS);
+            this.groupBox2.Controls.Add(this.btoLimpar);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.btoCadastro);
+            this.groupBox2.Controls.Add(this.txtSenha);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtLogin);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cboStatus);
+            this.groupBox2.Controls.Add(this.txtNome);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(10, 84);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(665, 248);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
             // 
             // btoSair
             // 
-            btoSair.Location = new Point(466, 189);
-            btoSair.Name = "btoSair";
-            btoSair.Size = new Size(81, 26);
-            btoSair.TabIndex = 18;
-            btoSair.Text = "&Sair";
-            btoSair.UseVisualStyleBackColor = true;
-            btoSair.Click += btoSair_Click;
+            this.btoSair.Location = new System.Drawing.Point(466, 189);
+            this.btoSair.Name = "btoSair";
+            this.btoSair.Size = new System.Drawing.Size(81, 26);
+            this.btoSair.TabIndex = 18;
+            this.btoSair.Text = "&Sair";
+            this.btoSair.UseVisualStyleBackColor = true;
+            this.btoSair.Click += new System.EventHandler(this.btoSair_Click);
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(5, 100);
-            label7.Name = "label7";
-            label7.Size = new Size(67, 13);
-            label7.TabIndex = 13;
-            label7.Text = "Observação";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(5, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Observação";
             // 
             // btoExcluir
             // 
-            btoExcluir.Location = new Point(380, 189);
-            btoExcluir.Name = "btoExcluir";
-            btoExcluir.Size = new Size(81, 26);
-            btoExcluir.TabIndex = 17;
-            btoExcluir.Text = "&Excluir";
-            btoExcluir.UseVisualStyleBackColor = true;
-            btoExcluir.Click += btoExcluir_Click;
+            this.btoExcluir.Location = new System.Drawing.Point(380, 189);
+            this.btoExcluir.Name = "btoExcluir";
+            this.btoExcluir.Size = new System.Drawing.Size(81, 26);
+            this.btoExcluir.TabIndex = 17;
+            this.btoExcluir.Text = "&Excluir";
+            this.btoExcluir.UseVisualStyleBackColor = true;
+            this.btoExcluir.Click += new System.EventHandler(this.btoExcluir_Click);
             // 
             // txtObservacao
             // 
-            txtObservacao.Location = new Point(5, 115);
-            txtObservacao.Margin = new Padding(2);
-            txtObservacao.Multiline = true;
-            txtObservacao.Name = "txtObservacao";
-            txtObservacao.Size = new Size(596, 69);
-            txtObservacao.TabIndex = 12;
+            this.txtObservacao.Location = new System.Drawing.Point(5, 115);
+            this.txtObservacao.Margin = new System.Windows.Forms.Padding(2);
+            this.txtObservacao.Multiline = true;
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Size = new System.Drawing.Size(596, 69);
+            this.txtObservacao.TabIndex = 12;
             // 
             // btoAlterar
             // 
-            btoAlterar.Location = new Point(294, 189);
-            btoAlterar.Name = "btoAlterar";
-            btoAlterar.Size = new Size(81, 26);
-            btoAlterar.TabIndex = 16;
-            btoAlterar.Text = "&Alterar";
-            btoAlterar.UseVisualStyleBackColor = true;
-            btoAlterar.Click += btoAlterar_Click;
+            this.btoAlterar.Location = new System.Drawing.Point(294, 189);
+            this.btoAlterar.Name = "btoAlterar";
+            this.btoAlterar.Size = new System.Drawing.Size(81, 26);
+            this.btoAlterar.TabIndex = 16;
+            this.btoAlterar.Text = "&Alterar";
+            this.btoAlterar.UseVisualStyleBackColor = true;
+            this.btoAlterar.Click += new System.EventHandler(this.btoAlterar_Click_1);
             // 
             // txtConfirmaS
             // 
-            txtConfirmaS.Location = new Point(262, 76);
-            txtConfirmaS.Margin = new Padding(2);
-            txtConfirmaS.Name = "txtConfirmaS";
-            txtConfirmaS.Size = new Size(125, 22);
-            txtConfirmaS.TabIndex = 11;
+            this.txtConfirmaS.Location = new System.Drawing.Point(262, 76);
+            this.txtConfirmaS.Margin = new System.Windows.Forms.Padding(2);
+            this.txtConfirmaS.Name = "txtConfirmaS";
+            this.txtConfirmaS.Size = new System.Drawing.Size(125, 22);
+            this.txtConfirmaS.TabIndex = 11;
             // 
             // btoLimpar
             // 
-            btoLimpar.Location = new Point(209, 189);
-            btoLimpar.Name = "btoLimpar";
-            btoLimpar.Size = new Size(81, 26);
-            btoLimpar.TabIndex = 15;
-            btoLimpar.Text = "&Limpar";
-            btoLimpar.UseVisualStyleBackColor = true;
-            btoLimpar.Click += btoLimpar_Click;
+            this.btoLimpar.Location = new System.Drawing.Point(209, 189);
+            this.btoLimpar.Name = "btoLimpar";
+            this.btoLimpar.Size = new System.Drawing.Size(81, 26);
+            this.btoLimpar.TabIndex = 15;
+            this.btoLimpar.Text = "&Limpar";
+            this.btoLimpar.UseVisualStyleBackColor = true;
+            this.btoLimpar.Click += new System.EventHandler(this.btoLimpar_Click);
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(262, 61);
-            label6.Name = "label6";
-            label6.Size = new Size(90, 13);
-            label6.TabIndex = 10;
-            label6.Text = "ConfirmarSenha";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(262, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "ConfirmarSenha";
             // 
             // btoCadastro
             // 
-            btoCadastro.Location = new Point(123, 189);
-            btoCadastro.Name = "btoCadastro";
-            btoCadastro.Size = new Size(81, 26);
-            btoCadastro.TabIndex = 14;
-            btoCadastro.Text = "&Cadastrar";
-            btoCadastro.UseVisualStyleBackColor = true;
-            btoCadastro.Click += btoCadastro_Click;
+            this.btoCadastro.Location = new System.Drawing.Point(123, 189);
+            this.btoCadastro.Name = "btoCadastro";
+            this.btoCadastro.Size = new System.Drawing.Size(81, 26);
+            this.btoCadastro.TabIndex = 14;
+            this.btoCadastro.Text = "&Cadastrar";
+            this.btoCadastro.UseVisualStyleBackColor = true;
+            this.btoCadastro.Click += new System.EventHandler(this.btoCadastro_Click_1);
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(133, 76);
-            txtSenha.Margin = new Padding(2);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(125, 22);
-            txtSenha.TabIndex = 9;
+            this.txtSenha.Location = new System.Drawing.Point(133, 76);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(125, 22);
+            this.txtSenha.TabIndex = 9;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(133, 61);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 13);
-            label5.TabIndex = 7;
-            label5.Text = "Senha";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(133, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Senha";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(497, 16);
-            label4.Name = "label4";
-            label4.Size = new Size(39, 13);
-            label4.TabIndex = 8;
-            label4.Text = "Status";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(497, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Status";
             // 
             // txtLogin
             // 
-            txtLogin.Location = new Point(5, 76);
-            txtLogin.Margin = new Padding(2);
-            txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(125, 22);
-            txtLogin.TabIndex = 7;
+            this.txtLogin.Location = new System.Drawing.Point(5, 76);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(125, 22);
+            this.txtLogin.TabIndex = 7;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(6, 61);
-            label3.Name = "label3";
-            label3.Size = new Size(36, 13);
-            label3.TabIndex = 6;
-            label3.Text = "Login";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(6, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Login";
             // 
             // cboStatus
             // 
-            cboStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboStatus.FormattingEnabled = true;
-            cboStatus.Items.AddRange(new object[] { "Ativo", "Inativo" });
-            cboStatus.Location = new Point(497, 37);
-            cboStatus.Name = "cboStatus";
-            cboStatus.Size = new Size(104, 21);
-            cboStatus.TabIndex = 2;
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "Ativo",
+            "Inativo"});
+            this.cboStatus.Location = new System.Drawing.Point(497, 37);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(104, 21);
+            this.cboStatus.TabIndex = 2;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(5, 37);
-            txtNome.Margin = new Padding(2);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(488, 22);
-            txtNome.TabIndex = 5;
+            this.txtNome.Location = new System.Drawing.Point(5, 37);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(488, 22);
+            this.txtNome.TabIndex = 5;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(5, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(37, 13);
-            label2.TabIndex = 4;
-            label2.Text = "Nome";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(5, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Nome";
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox1);
-            groupBox3.Controls.Add(dataGridUsuario);
-            groupBox3.Location = new Point(10, 338);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(665, 144);
-            groupBox3.TabIndex = 2;
-            groupBox3.TabStop = false;
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.dataGridUsuario);
+            this.groupBox3.Location = new System.Drawing.Point(10, 338);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(665, 144);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(6, 15);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(423, 22);
-            textBox1.TabIndex = 1;
-            textBox1.TextChanged += textBox1_TextChanged;
+            this.textBox1.Location = new System.Drawing.Point(6, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(423, 22);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dataGridUsuario
             // 
-            dataGridUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridUsuario.Location = new Point(5, 43);
-            dataGridUsuario.Name = "dataGridUsuario";
-            dataGridUsuario.RowTemplate.Height = 25;
-            dataGridUsuario.Size = new Size(654, 95);
-            dataGridUsuario.TabIndex = 0;
+            this.dataGridUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUsuario.Location = new System.Drawing.Point(5, 43);
+            this.dataGridUsuario.Name = "dataGridUsuario";
+            this.dataGridUsuario.RowTemplate.Height = 25;
+            this.dataGridUsuario.Size = new System.Drawing.Size(654, 95);
+            this.dataGridUsuario.TabIndex = 0;
             // 
             // frmUsuario
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(853, 494);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            Name = "frmUsuario";
-            Text = "Usuario";
-            Load += frmUsuario_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridUsuario).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(853, 494);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Name = "frmUsuario";
+            this.Text = "Usuario";
+            this.Load += new System.EventHandler(this.frmUsuario_Load_1);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUsuario)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

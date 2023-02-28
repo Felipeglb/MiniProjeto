@@ -29,7 +29,7 @@ namespace MiniProjeto
             frmCategoria categoria = new frmCategoria();
             categoria.MdiParent = this;
             categoria.Show();
-            this.Hide();
+            
 
 
         }
@@ -39,25 +39,18 @@ namespace MiniProjeto
             frmProduto produto = new frmProduto();
             produto.MdiParent = this;           
             produto.Show();
-            this.Hide();
+            
 
         }
 
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCategoria cliente = new frmCategoria();
-            cliente.MdiParent = this;      
-            cliente.Show();
-            this.Hide();
 
-        }
 
         private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
         frmUsuario usuario = new frmUsuario();
         usuario.MdiParent = this;
         usuario.Show();
-        this.Hide();
+        
 
         }
 

@@ -7,7 +7,7 @@ namespace MiniProjeto
 
     public partial class frmUsuario : Form
     {
-        string stringConexao = " data source = Localhost; initial Catalog=T13_MiniProjeto;User ID=sa; password=123456";
+        string stringConexao = frmLogin.stringConexao;
         private void TestarConexao()
         {
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -29,10 +29,7 @@ namespace MiniProjeto
         }
 
 
-        private void frmUsuario_Load(object sender, EventArgs e)
-        {
-            TestarConexao();
-        }
+
 
         private bool Validar()
         {
@@ -80,54 +77,144 @@ namespace MiniProjeto
         }
 
 
-        private void btoCadastro_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+        void CarregarDataGrid()
         {
-            if (Validar())
+            string sql = "select id_Usuario as 'ID'," +
+       "nome_Usuario as 'Nome'," +
+        "Status_Usuario as 'Status'," +
+       "Login_Usuario as 'Login'" +
+       "from Usuario where nome_Usuario like '%" + txtNome.Text + "%'";
+            SqlConnection connection = new SqlConnection(stringConexao);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
+
+            try
             {
-                string sql = "insert into Usuario" +
-                    "(" +
-                    "nome_Usuario," +
-                    "Status_Usuario," +
-                    "Login_Usuario," +
-                    "Senha_Usuario," +
-                    "Obs_Usuario" +
-                    ")" +
-                    "Values" +
-                    "(" +
-                    "'" + txtNome.Text + "'," +
-                    "'" + cboStatus.Text + "'," +
-                    "'" + txtLogin.Text + "'," +
-                    "'" + txtSenha.Text + "'," +
-                    "'" + txtObservacao.Text + "'" +
-                    ")";
+                adapter.Fill(ds);
+                dataGridUsuario.DataSource = ds.Tables[0];
+                dataGridUsuario.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridUsuario.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
 
-                SqlConnection conn = new SqlConnection(stringConexao);
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.CommandType = CommandType.Text;
-                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
 
-                try
-                {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Cadastro realizado com sucesso");
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro: " + ex.ToString());
-                }
-                finally
-                {
-                    CarregarDataGrid();
-                    conn.Close();
-                }
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
-        private void btoCadastrar2_Click(object sender, EventArgs e)
+
+
+        private void frmUsuario_Load_1(object sender, EventArgs e)
+        {
+            TestarConexao();
+            CarregarDataGrid();
+        }
+
+        private void btoExcluir_Click(object sender, EventArgs e)
+        {
+            string sql = "delete from  Usuario Where id_Usuario = " + txtCodigo.Text;
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader leitura;
+
+            try
+            {
+                conn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i == 1)
+                {
+                    MessageBox.Show("Dados excluídos");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                CarregarDataGrid();
+                conn.Close();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
+
+        private void btoSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btoLimpar_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Text = "";
+            txtNome.Text = "";
+            cboStatus.SelectedIndex = -1;
+            txtLogin.Text = "";
+            txtSenha.Text = "";
+            txtConfirmaS.Text = "";
+            txtObservacao.Text = "";
+        }
+
+        private void btoAlterar_Click_1(object sender, EventArgs e)
+        {
+            string sql = "update  Usuario set " +
+"nome_Usuario= '" + txtNome.Text + "'," +
+"status_Usuario= '" + cboStatus.Text + "'," +
+"login_Usuario= '" + txtLogin.Text + "'," +
+"senha_Usuario= '" + txtSenha.Text + "'," +
+"obs_Usuario= '" + txtObservacao.Text + "'" +
+"Where id_Usuario = " + txtCodigo.Text;
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader leitura;
+
+
+            try
+            {
+                conn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i == 1)
+                {
+                    MessageBox.Show("Dados Alterados com sucesso");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                CarregarDataGrid();
+                conn.Close();
+            }
+        }
+
+        private void btoCadastro_Click_1(object sender, EventArgs e)
         {
             if (Validar())
             {
@@ -187,8 +274,6 @@ namespace MiniProjeto
             }
         }
 
-
-
         private void btoPesquisar_Click(object sender, EventArgs e)
         {
             string sql = "select * from Usuario where id_Usuario =" + txtCodigo.Text;
@@ -224,131 +309,6 @@ namespace MiniProjeto
             {
                 conexao.Close();
             }
-
-
-        }
-
-
-
-        private void btoAlterar_Click(object sender, EventArgs e)
-        {
-            string sql = "update  Usuario set " +
-            "nome_Usuario= '" + txtNome.Text + "'," +
-            "status_Usuario= '" + cboStatus.Text + "'," +
-            "login_Usuario= '" + txtLogin.Text + "'," +
-            "senha_Usuario= '" + txtSenha.Text + "'," +
-            "obs_Usuario= '" + txtObservacao.Text + "'" +
-            "Where id_Usuario = " + txtCodigo.Text;
-
-            SqlConnection conn = new SqlConnection(stringConexao);
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.Text;
-            SqlDataReader leitura;
-
-
-            try
-            {
-                conn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i == 1)
-                {
-                    MessageBox.Show("Dados Alterados com sucesso");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                CarregarDataGrid();
-                conn.Close();
-            }
-        }
-
-        private void btoLimpar_Click(object sender, EventArgs e)
-        {
-
-            txtCodigo.Text = "";
-            txtNome.Text = "";
-            cboStatus.SelectedIndex = -1;
-            txtLogin.Text = "";
-            txtSenha.Text = "";
-            txtConfirmaS.Text = "";
-            txtObservacao.Text = "";
-        }
-
-        private void btoSair_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void btoExcluir_Click(object sender, EventArgs e)
-        {
-            string sql = "delete from  Usuario Where id_Usuario = " + txtCodigo.Text;
-
-            SqlConnection conn = new SqlConnection(stringConexao);
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.Text;
-            SqlDataReader leitura;
-
-            try
-            {
-                conn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i == 1)
-                {
-                    MessageBox.Show("Dados excluídos");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                CarregarDataGrid();
-                conn.Close();
-            }
-        }
-
-        void CarregarDataGrid()
-        {
-            string sql = "select id_Usuario as 'ID'," +
-       "nome__Usuario as 'Nome'," +
-        "Status_Usuario as 'Status'," +
-       "Login_Usuario as 'Login'," +
-       "from Usuario where nome_Usuario like '%" + txtNome.Text + "%'";
-            SqlConnection connection = new SqlConnection(stringConexao);
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-            DataSet ds = new DataSet();
-            connection.Open();
-
-            try
-            {
-                adapter.Fill(ds);
-                dataGridUsuario.DataSource = ds.Tables[0];
-                dataGridUsuario.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                dataGridUsuario.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            CarregarDataGrid();
         }
     }
 }
