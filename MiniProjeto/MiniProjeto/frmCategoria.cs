@@ -313,5 +313,10 @@ namespace MiniProjeto
             txtCodigo.Text = dataGridCategoria.CurrentRow.Cells["id_Categoria"].Value.ToString();
             CarregarDataGrid();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
     }
 }

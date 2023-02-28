@@ -34,10 +34,15 @@
             label1 = new Label();
             btoCadastrar2 = new Button();
             groupBox2 = new GroupBox();
+            btoSair = new Button();
             label7 = new Label();
+            btoExcluir = new Button();
             txtObservacao = new TextBox();
+            btoAlterar = new Button();
             txtConfirmaS = new TextBox();
+            btoLimpar = new Button();
             label6 = new Label();
+            btoCadastro = new Button();
             txtSenha = new TextBox();
             label5 = new Label();
             label4 = new Label();
@@ -47,13 +52,8 @@
             txtNome = new TextBox();
             label2 = new Label();
             groupBox3 = new GroupBox();
-            btoSair = new Button();
-            btoExcluir = new Button();
-            btoAlterar = new Button();
-            btoLimpar = new Button();
-            btoCadastro = new Button();
-            dataGridUsuario = new DataGridView();
             textBox1 = new TextBox();
+            dataGridUsuario = new DataGridView();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -135,6 +135,16 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
+            // btoSair
+            // 
+            btoSair.Location = new Point(466, 189);
+            btoSair.Name = "btoSair";
+            btoSair.Size = new Size(81, 26);
+            btoSair.TabIndex = 18;
+            btoSair.Text = "&Sair";
+            btoSair.UseVisualStyleBackColor = true;
+            btoSair.Click += btoSair_Click;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -145,6 +155,16 @@
             label7.TabIndex = 13;
             label7.Text = "Observação";
             // 
+            // btoExcluir
+            // 
+            btoExcluir.Location = new Point(380, 189);
+            btoExcluir.Name = "btoExcluir";
+            btoExcluir.Size = new Size(81, 26);
+            btoExcluir.TabIndex = 17;
+            btoExcluir.Text = "&Excluir";
+            btoExcluir.UseVisualStyleBackColor = true;
+            btoExcluir.Click += btoExcluir_Click;
+            // 
             // txtObservacao
             // 
             txtObservacao.Location = new Point(5, 115);
@@ -154,6 +174,16 @@
             txtObservacao.Size = new Size(596, 69);
             txtObservacao.TabIndex = 12;
             // 
+            // btoAlterar
+            // 
+            btoAlterar.Location = new Point(294, 189);
+            btoAlterar.Name = "btoAlterar";
+            btoAlterar.Size = new Size(81, 26);
+            btoAlterar.TabIndex = 16;
+            btoAlterar.Text = "&Alterar";
+            btoAlterar.UseVisualStyleBackColor = true;
+            btoAlterar.Click += btoAlterar_Click;
+            // 
             // txtConfirmaS
             // 
             txtConfirmaS.Location = new Point(262, 76);
@@ -161,6 +191,16 @@
             txtConfirmaS.Name = "txtConfirmaS";
             txtConfirmaS.Size = new Size(125, 22);
             txtConfirmaS.TabIndex = 11;
+            // 
+            // btoLimpar
+            // 
+            btoLimpar.Location = new Point(209, 189);
+            btoLimpar.Name = "btoLimpar";
+            btoLimpar.Size = new Size(81, 26);
+            btoLimpar.TabIndex = 15;
+            btoLimpar.Text = "&Limpar";
+            btoLimpar.UseVisualStyleBackColor = true;
+            btoLimpar.Click += btoLimpar_Click;
             // 
             // label6
             // 
@@ -171,6 +211,16 @@
             label6.Size = new Size(90, 13);
             label6.TabIndex = 10;
             label6.Text = "ConfirmarSenha";
+            // 
+            // btoCadastro
+            // 
+            btoCadastro.Location = new Point(123, 189);
+            btoCadastro.Name = "btoCadastro";
+            btoCadastro.Size = new Size(81, 26);
+            btoCadastro.TabIndex = 14;
+            btoCadastro.Text = "&Cadastrar";
+            btoCadastro.UseVisualStyleBackColor = true;
+            btoCadastro.Click += btoCadastro_Click;
             // 
             // txtSenha
             // 
@@ -256,55 +306,13 @@
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             // 
-            // btoSair
+            // textBox1
             // 
-            btoSair.Location = new Point(466, 189);
-            btoSair.Name = "btoSair";
-            btoSair.Size = new Size(81, 26);
-            btoSair.TabIndex = 18;
-            btoSair.Text = "&Sair";
-            btoSair.UseVisualStyleBackColor = true;
-            btoSair.Click += btoSair_Click;
-            // 
-            // btoExcluir
-            // 
-            btoExcluir.Location = new Point(380, 189);
-            btoExcluir.Name = "btoExcluir";
-            btoExcluir.Size = new Size(81, 26);
-            btoExcluir.TabIndex = 17;
-            btoExcluir.Text = "&Excluir";
-            btoExcluir.UseVisualStyleBackColor = true;
-            btoExcluir.Click += btoExcluir_Click;
-            // 
-            // btoAlterar
-            // 
-            btoAlterar.Location = new Point(294, 189);
-            btoAlterar.Name = "btoAlterar";
-            btoAlterar.Size = new Size(81, 26);
-            btoAlterar.TabIndex = 16;
-            btoAlterar.Text = "&Alterar";
-            btoAlterar.UseVisualStyleBackColor = true;
-            btoAlterar.Click += btoAlterar_Click;
-            // 
-            // btoLimpar
-            // 
-            btoLimpar.Location = new Point(209, 189);
-            btoLimpar.Name = "btoLimpar";
-            btoLimpar.Size = new Size(81, 26);
-            btoLimpar.TabIndex = 15;
-            btoLimpar.Text = "&Limpar";
-            btoLimpar.UseVisualStyleBackColor = true;
-            btoLimpar.Click += btoLimpar_Click;
-            // 
-            // btoCadastro
-            // 
-            btoCadastro.Location = new Point(123, 189);
-            btoCadastro.Name = "btoCadastro";
-            btoCadastro.Size = new Size(81, 26);
-            btoCadastro.TabIndex = 14;
-            btoCadastro.Text = "&Cadastrar";
-            btoCadastro.UseVisualStyleBackColor = true;
-            btoCadastro.Click += btoCadastro_Click;
+            textBox1.Location = new Point(6, 15);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(423, 22);
+            textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // dataGridUsuario
             // 
@@ -314,14 +322,6 @@
             dataGridUsuario.RowTemplate.Height = 25;
             dataGridUsuario.Size = new Size(654, 95);
             dataGridUsuario.TabIndex = 0;
-
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(6, 15);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(423, 22);
-            textBox1.TabIndex = 1;
             // 
             // frmUsuario
             // 

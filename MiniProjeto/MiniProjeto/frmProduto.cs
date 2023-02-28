@@ -449,6 +449,9 @@ namespace MiniProjeto
 
         }
 
-
+        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
     }
 }

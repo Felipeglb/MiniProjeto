@@ -389,6 +389,7 @@
             txtNomePesquisa.Name = "txtNomePesquisa";
             txtNomePesquisa.Size = new Size(414, 23);
             txtNomePesquisa.TabIndex = 0;
+            txtNomePesquisa.TextChanged += txtNomePesquisa_TextChanged;
             // 
             // dataGridProduto
             // 
@@ -399,7 +400,6 @@
             dataGridProduto.Size = new Size(859, 105);
             dataGridProduto.TabIndex = 0;
             dataGridProduto.CellClick += dataGridProduto_CellClick;
-
             // 
             // frmProduto
             // 
