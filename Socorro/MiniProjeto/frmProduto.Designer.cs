@@ -154,7 +154,6 @@
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(274, 23);
             this.cboCategoria.TabIndex = 25;
-            this.cboCategoria.SelectedIndexChanged += new System.EventHandler(this.cboCategoria_SelectedIndexChanged);
             // 
             // btoExcluir
             // 
@@ -390,7 +389,7 @@
             this.dataGridProduto.RowTemplate.Height = 25;
             this.dataGridProduto.Size = new System.Drawing.Size(859, 105);
             this.dataGridProduto.TabIndex = 0;
-            this.dataGridProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduto_CellContentClick);
+            this.dataGridProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduto_CellClick);
             // 
             // frmProduto
             // 

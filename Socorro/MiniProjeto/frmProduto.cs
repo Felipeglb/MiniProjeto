@@ -216,7 +216,6 @@ namespace MiniProjeto
                     "ValorVenda_Produto," + //3 
                     "Status_Produto," + // 4
                     "id_Categoria_Produto," + //5 
-                    "dataCadastro_Produto," + //6
                     "qtde_Produto," +// 7
                     "descricao_Produto," + //8
                     "Obs_Produto" + //9
@@ -228,7 +227,6 @@ namespace MiniProjeto
                     "" + vVenda + "," + //3
                     "'" + cboStatus.Text + "'," + //4
                    "" + cboIDCate.Text + "," + // 5
-                    "'" + mtbDataC.Text + "'," + //6 
                     "" + txtQtde.Text + "," + //7 
                     "'" + txtDesc.Text + "'," + // 8
                     "'" + txtObs.Text + "'" +//9
@@ -269,24 +267,32 @@ namespace MiniProjeto
             CarregarDataGrid();
         }
 
-        private void dataGridProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["id_Produto"].Value.ToString();
-            CarregarDataGrid();
-        }
+
 
         private void btoAlterar_Click_1(object sender, EventArgs e)
         {
+            string vCusto = txtValorC.Text;
+            //R$ 1.000,00
+            vCusto = vCusto.Replace("R$ ", ""); //1.000,00
+            vCusto = vCusto.Replace(".", ""); //1000,00
+            vCusto = vCusto.Replace(',', '.');//1000.00
+
+            string vVenda = txtValorV.Text;
+            //R$ 1.000,00
+            vVenda = vVenda.Replace("R$ ", ""); //1.000,00
+            vVenda = vVenda.Replace(".", "");   //1000,00
+            vVenda = vVenda.Replace(",", "."); //1000.00
+
             string sql = "update  Produto set " +
-"nome_Usuario= '" + txtNome.Text + "'," +
-"ValorCusto_Produto= '" + txtValorC.Text + "'," +
-"ValorVenda_Produto= '" + txtValorV.Text + "'," +
+"nome_Produto= '" + txtNome.Text + "'," +
+"ValorCusto_Produto= '" + vCusto + "'," +
+"ValorVenda_Produto= '" + vVenda + "'," +
 "status_Produto= '" + cboStatus.Text + "'," +
-"Nome_Categoria_Produto= '" + cboCategoria.Text + "'," +
+"dataCadastro_Produto= '" + txtDesc.Text + "'," +
+"id_Categoria_Produto= '" + cboIDCate.Text + "'," +
 "descricao_Produto= '" + mtbDataC.Text + "'," +
 "qtde_Produto= '" + txtQtde.Text + "'," +
-"dataCadastro_Produto= '" + txtDesc.Text + "'," +
-"obs_Usuario= '" + txtObs.Text + "'" +
+"obs_Produto= '" + txtObs.Text + "'" +
 "Where id_Produto = " + txtCodigo.Text;
 
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -379,15 +385,21 @@ namespace MiniProjeto
                 if (reader.Read())
                 {
                     txtNome.Text = reader[1].ToString();
+
                     txtValorC.Text = reader[2].ToString();
+                    txtValorC.Text = String.Format("{0:C}", float.Parse(txtValorC.Text));
+
                     txtValorV.Text = reader[3].ToString();
-                    cboStatus.SelectedItem = reader[4].ToString();
-                    cboCategoria.Text = reader[5].ToString();
+                    txtValorV.Text = String.Format("{0:C}", float.Parse(txtValorV.Text));
+
+                    mtbDataC.Text = reader[4].ToString();
+                    cboStatus.SelectedItem = reader[5].ToString();                    
                     cboIDCate.Text = reader[6].ToString();
-                    mtbDataC.Text = reader[7].ToString();
-                    txtQtde.Text = reader[8].ToString();
-                    txtDesc.Text = reader[9].ToString();
-                    txtObs.Text = reader[10].ToString();
+                    txtDesc.Text = reader[7].ToString();
+                    txtQtde.Text = reader[8].ToString();                 
+                    txtObs.Text = reader[9].ToString();
+                   
+                    CarregarDataGrid();
                 }
                 else
                 {
@@ -400,16 +412,17 @@ namespace MiniProjeto
             }
             finally
             {
-                CarregarDataGrid();
+                
                 conexao.Close();
             }
         }
 
-        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridProduto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ComboBox();
+            txtCodigo.Text = dataGridProduto.CurrentRow.Cells["id_Produto"].Value.ToString();
+            CarregarDataGrid();
         }
-
-
     }
+
 }
+

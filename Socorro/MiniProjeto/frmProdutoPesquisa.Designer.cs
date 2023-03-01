@@ -1,6 +1,6 @@
 ﻿namespace MiniProjeto
 {
-    partial class frmCategoriaPesquisa
+    partial class frmProdutoPesquisa
     {
         /// <summary>
         /// Required designer variable.
@@ -30,49 +30,48 @@
         {
             this.txtNomePesquisa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridCategoriaPesquisa = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCategoriaPesquisa)).BeginInit();
+            this.dataGridProdutoPesquisa = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProdutoPesquisa)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNomePesquisa
             // 
-            this.txtNomePesquisa.Location = new System.Drawing.Point(12, 35);
+            this.txtNomePesquisa.Location = new System.Drawing.Point(12, 49);
             this.txtNomePesquisa.Name = "txtNomePesquisa";
-            this.txtNomePesquisa.Size = new System.Drawing.Size(195, 23);
+            this.txtNomePesquisa.Size = new System.Drawing.Size(210, 23);
             this.txtNomePesquisa.TabIndex = 0;
-            this.txtNomePesquisa.TextChanged += new System.EventHandler(this.txtNomePesquisa_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 17);
+            this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 15);
+            this.label1.Size = new System.Drawing.Size(103, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Pesquisa";
+            this.label1.Text = "Pesquisa Dolorosa";
             // 
-            // dataGridCategoriaPesquisa
+            // dataGridProdutoPesquisa
             // 
-            this.dataGridCategoriaPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCategoriaPesquisa.Location = new System.Drawing.Point(12, 83);
-            this.dataGridCategoriaPesquisa.Name = "dataGridCategoriaPesquisa";
-            this.dataGridCategoriaPesquisa.RowTemplate.Height = 25;
-            this.dataGridCategoriaPesquisa.Size = new System.Drawing.Size(776, 166);
-            this.dataGridCategoriaPesquisa.TabIndex = 2;
-            this.dataGridCategoriaPesquisa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCategoriaPesquisa_CellDoubleClick);
+            this.dataGridProdutoPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridProdutoPesquisa.Location = new System.Drawing.Point(12, 78);
+            this.dataGridProdutoPesquisa.Name = "dataGridProdutoPesquisa";
+            this.dataGridProdutoPesquisa.RowTemplate.Height = 25;
+            this.dataGridProdutoPesquisa.Size = new System.Drawing.Size(937, 303);
+            this.dataGridProdutoPesquisa.TabIndex = 2;
+            this.dataGridProdutoPesquisa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProdutoPesquisa_CellDoubleClick);
             // 
-            // frmCategoriaPesquisa
+            // frmProdutoPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridCategoriaPesquisa);
+            this.ClientSize = new System.Drawing.Size(961, 542);
+            this.Controls.Add(this.dataGridProdutoPesquisa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomePesquisa);
-            this.Name = "frmCategoriaPesquisa";
-            this.Text = "frmCategoriaPesquisa";
-            this.Load += new System.EventHandler(this.frmCategoriaPesquisa_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCategoriaPesquisa)).EndInit();
+            this.Name = "frmProdutoPesquisa";
+            this.Text = "frmProdutoPesquisa";
+            this.Load += new System.EventHandler(this.frmProdutoPesquisa_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridProdutoPesquisa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,6 +81,6 @@
 
         private TextBox txtNomePesquisa;
         private Label label1;
-        private DataGridView dataGridCategoriaPesquisa;
+        private DataGridView dataGridProdutoPesquisa;
     }
 }

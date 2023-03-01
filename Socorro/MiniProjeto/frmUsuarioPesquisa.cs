@@ -11,14 +11,12 @@ using System.Windows.Forms;
 
 namespace MiniProjeto
 {
-    public partial class frmCategoriaPesquisa : Form
+    public partial class frmUsuarioPesquisa : Form
     {
-        public frmCategoriaPesquisa()
+        public frmUsuarioPesquisa()
         {
             InitializeComponent();
         }
-
-
 
         string Conexao = frmLogin.stringConexao;
         public string _codigo;
@@ -40,12 +38,12 @@ namespace MiniProjeto
         }
 
         private void CarregarDataGrid()
-        {
-            string sql = "select id_Categoria as 'ID'," +
-    "nome_Categoria as 'Nome'," +
-    "Status_Categoria as 'Status'," +
-    "descricao_Categoria as 'Descrição'" +
-    "from Categoria where nome_Categoria like '%" + txtNomePesquisa.Text + "%'";
+        { 
+        string sql =  "select id_Usuario as 'ID'," +
+"nome_Usuario as 'Nome'," +
+"Status_Usuario as 'Status'," +
+"Login_Usuario as 'Login'" +
+"from Usuario where nome_Usuario like '%"  + txtNomePesquisa.Text + "%'";
             SqlConnection connection = new SqlConnection(Conexao);
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             DataSet ds = new DataSet();
@@ -54,9 +52,9 @@ namespace MiniProjeto
             try
             {
                 adapter.Fill(ds);
-                dataGridCategoriaPesquisa.DataSource = ds.Tables[0];
-                dataGridCategoriaPesquisa.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                dataGridCategoriaPesquisa.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+                dataGridUsuarioPesquisa.DataSource = ds.Tables[0];
+                dataGridUsuarioPesquisa.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dataGridUsuarioPesquisa.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
 
             }
             catch (Exception ex)
@@ -70,25 +68,23 @@ namespace MiniProjeto
             }
         }
 
-        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
-        {
-            CarregarDataGrid();
-            
-        }
 
-        private void frmCategoriaPesquisa_Load_1(object sender, EventArgs e)
+        private void frmUsuarioPesquisa_Load(object sender, EventArgs e)
         {
-            CarregarDataGrid();
             TestarConexao();
+            CarregarDataGrid(); 
         }
 
-        private void dataGridCategoriaPesquisa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void txtNomePesquisa_TextChanged(object sender, EventArgs e)
+        {   
+            CarregarDataGrid();
+        }
+
+        private void dataGridUsuarioPesquisa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _codigo = dataGridCategoriaPesquisa.CurrentRow.Cells["ID"].Value.ToString();
+            _codigo = dataGridUsuarioPesquisa.CurrentRow.Cells["ID"].Value.ToString();
             this.Close();
         }
     }
-
-
 }
-
