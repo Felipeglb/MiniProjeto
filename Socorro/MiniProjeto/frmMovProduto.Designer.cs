@@ -28,264 +28,267 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
-            btoPesquisa = new Button();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            txtNome = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            txtIdProduto = new TextBox();
-            mtbDataRealizacao = new MaskedTextBox();
-            label4 = new Label();
-            cboTipoMov = new ComboBox();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            textBox2 = new TextBox();
-            btoCadastro = new Button();
-            btoAlterar = new Button();
-            btoLimpar = new Button();
-            btoExcluir = new Button();
-            maskedTextBox1 = new MaskedTextBox();
-            label8 = new Label();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btoPesquisa = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboTipoMov = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.mtbDataRealizacao = new System.Windows.Forms.MaskedTextBox();
+            this.txtIdProduto = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btoExcluir = new System.Windows.Forms.Button();
+            this.btoLimpar = new System.Windows.Forms.Button();
+            this.btoAlterar = new System.Windows.Forms.Button();
+            this.btoCadastro = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(btoPesquisa);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 76);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(maskedTextBox1);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(cboTipoMov);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(mtbDataRealizacao);
-            groupBox2.Controls.Add(txtIdProduto);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(txtNome);
-            groupBox2.Location = new Point(12, 94);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(776, 79);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(btoExcluir);
-            groupBox3.Controls.Add(btoLimpar);
-            groupBox3.Controls.Add(btoAlterar);
-            groupBox3.Controls.Add(btoCadastro);
-            groupBox3.Controls.Add(textBox2);
-            groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(label6);
-            groupBox3.Location = new Point(12, 179);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(776, 197);
-            groupBox3.TabIndex = 1;
-            groupBox3.TabStop = false;
-            // 
-            // btoPesquisa
-            // 
-            btoPesquisa.Location = new Point(125, 37);
-            btoPesquisa.Name = "btoPesquisa";
-            btoPesquisa.Size = new Size(75, 23);
-            btoPesquisa.TabIndex = 1;
-            btoPesquisa.Text = "&Pesquisar";
-            btoPesquisa.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(19, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btoPesquisa);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(776, 76);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(19, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(46, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Código";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Código";
             // 
-            // txtNome
+            // textBox1
             // 
-            txtNome.Location = new Point(19, 37);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(221, 23);
-            txtNome.TabIndex = 0;
+            this.textBox1.Location = new System.Drawing.Point(19, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 0;
             // 
-            // label2
+            // btoPesquisa
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(19, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(103, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Nome do Produto";
+            this.btoPesquisa.Location = new System.Drawing.Point(125, 37);
+            this.btoPesquisa.Name = "btoPesquisa";
+            this.btoPesquisa.Size = new System.Drawing.Size(75, 23);
+            this.btoPesquisa.TabIndex = 1;
+            this.btoPesquisa.Text = "&Pesquisar";
+            this.btoPesquisa.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // groupBox2
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(353, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(105, 15);
-            label3.TabIndex = 4;
-            label3.Text = "Data da Realização";
-            // 
-            // txtIdProduto
-            // 
-            txtIdProduto.Location = new Point(246, 37);
-            txtIdProduto.Name = "txtIdProduto";
-            txtIdProduto.Size = new Size(100, 23);
-            txtIdProduto.TabIndex = 1;
-            // 
-            // mtbDataRealizacao
-            // 
-            mtbDataRealizacao.Location = new Point(353, 37);
-            mtbDataRealizacao.Mask = "__/__/____";
-            mtbDataRealizacao.Name = "mtbDataRealizacao";
-            mtbDataRealizacao.Size = new Size(109, 23);
-            mtbDataRealizacao.TabIndex = 2;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(246, 19);
-            label4.Name = "label4";
-            label4.Size = new Size(46, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Código";
-            // 
-            // cboTipoMov
-            // 
-            cboTipoMov.FormattingEnabled = true;
-            cboTipoMov.Items.AddRange(new object[] { "Venda", "Compra" });
-            cboTipoMov.Location = new Point(583, 37);
-            cboTipoMov.Name = "cboTipoMov";
-            cboTipoMov.Size = new Size(129, 23);
-            cboTipoMov.TabIndex = 4;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(583, 19);
-            label5.Name = "label5";
-            label5.Size = new Size(129, 15);
-            label5.TabIndex = 9;
-            label5.Text = "Tipo de Movimentação";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(19, 19);
-            label6.Name = "label6";
-            label6.Size = new Size(0, 15);
-            label6.TabIndex = 10;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(22, 19);
-            label7.Name = "label7";
-            label7.Size = new Size(69, 15);
-            label7.TabIndex = 10;
-            label7.Text = "Observação";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(22, 37);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(547, 65);
-            textBox2.TabIndex = 0;
-            // 
-            // btoCadastro
-            // 
-            btoCadastro.Location = new Point(97, 125);
-            btoCadastro.Name = "btoCadastro";
-            btoCadastro.Size = new Size(75, 23);
-            btoCadastro.TabIndex = 1;
-            btoCadastro.Text = "&Cadastro";
-            btoCadastro.UseVisualStyleBackColor = true;
-            // 
-            // btoAlterar
-            // 
-            btoAlterar.Location = new Point(200, 125);
-            btoAlterar.Name = "btoAlterar";
-            btoAlterar.Size = new Size(75, 23);
-            btoAlterar.TabIndex = 2;
-            btoAlterar.Text = "&Alterar";
-            btoAlterar.UseVisualStyleBackColor = true;
-            // 
-            // btoLimpar
-            // 
-            btoLimpar.Location = new Point(308, 125);
-            btoLimpar.Name = "btoLimpar";
-            btoLimpar.Size = new Size(75, 23);
-            btoLimpar.TabIndex = 3;
-            btoLimpar.Text = "&Limpar";
-            btoLimpar.UseVisualStyleBackColor = true;
-            // 
-            // btoExcluir
-            // 
-            btoExcluir.Location = new Point(404, 125);
-            btoExcluir.Name = "btoExcluir";
-            btoExcluir.Size = new Size(75, 23);
-            btoExcluir.TabIndex = 4;
-            btoExcluir.Text = "&Excluir";
-            btoExcluir.UseVisualStyleBackColor = true;
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Location = new Point(468, 37);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(109, 23);
-            maskedTextBox1.TabIndex = 3;
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.maskedTextBox1);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.cboTipoMov);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.mtbDataRealizacao);
+            this.groupBox2.Controls.Add(this.txtIdProduto);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.txtNome);
+            this.groupBox2.Location = new System.Drawing.Point(12, 94);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(776, 79);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(468, 19);
-            label8.Name = "label8";
-            label8.Size = new Size(33, 15);
-            label8.TabIndex = 11;
-            label8.Text = "Qtde";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(468, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 15);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Qtde";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(468, 37);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(109, 23);
+            this.maskedTextBox1.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(583, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 15);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Tipo de Movimentação";
+            // 
+            // cboTipoMov
+            // 
+            this.cboTipoMov.FormattingEnabled = true;
+            this.cboTipoMov.Items.AddRange(new object[] {
+            "Venda",
+            "Compra"});
+            this.cboTipoMov.Location = new System.Drawing.Point(583, 37);
+            this.cboTipoMov.Name = "cboTipoMov";
+            this.cboTipoMov.Size = new System.Drawing.Size(129, 23);
+            this.cboTipoMov.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(246, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 15);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Código";
+            // 
+            // mtbDataRealizacao
+            // 
+            this.mtbDataRealizacao.Location = new System.Drawing.Point(353, 37);
+            this.mtbDataRealizacao.Mask = "__/__/____";
+            this.mtbDataRealizacao.Name = "mtbDataRealizacao";
+            this.mtbDataRealizacao.Size = new System.Drawing.Size(109, 23);
+            this.mtbDataRealizacao.TabIndex = 2;
+            // 
+            // txtIdProduto
+            // 
+            this.txtIdProduto.Location = new System.Drawing.Point(246, 37);
+            this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.Size = new System.Drawing.Size(100, 23);
+            this.txtIdProduto.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(353, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Data da Realização";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Nome do Produto";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(19, 37);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(221, 23);
+            this.txtNome.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btoExcluir);
+            this.groupBox3.Controls.Add(this.btoLimpar);
+            this.groupBox3.Controls.Add(this.btoAlterar);
+            this.groupBox3.Controls.Add(this.btoCadastro);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(12, 179);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(776, 197);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            // 
+            // btoExcluir
+            // 
+            this.btoExcluir.Location = new System.Drawing.Point(404, 125);
+            this.btoExcluir.Name = "btoExcluir";
+            this.btoExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btoExcluir.TabIndex = 4;
+            this.btoExcluir.Text = "&Excluir";
+            this.btoExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btoLimpar
+            // 
+            this.btoLimpar.Location = new System.Drawing.Point(308, 125);
+            this.btoLimpar.Name = "btoLimpar";
+            this.btoLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btoLimpar.TabIndex = 3;
+            this.btoLimpar.Text = "&Limpar";
+            this.btoLimpar.UseVisualStyleBackColor = true;
+            // 
+            // btoAlterar
+            // 
+            this.btoAlterar.Location = new System.Drawing.Point(200, 125);
+            this.btoAlterar.Name = "btoAlterar";
+            this.btoAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btoAlterar.TabIndex = 2;
+            this.btoAlterar.Text = "&Alterar";
+            this.btoAlterar.UseVisualStyleBackColor = true;
+            // 
+            // btoCadastro
+            // 
+            this.btoCadastro.Location = new System.Drawing.Point(97, 125);
+            this.btoCadastro.Name = "btoCadastro";
+            this.btoCadastro.Size = new System.Drawing.Size(75, 23);
+            this.btoCadastro.TabIndex = 1;
+            this.btoCadastro.Text = "&Cadastro";
+            this.btoCadastro.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(22, 37);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(547, 65);
+            this.textBox2.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 15);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Observação";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 15);
+            this.label6.TabIndex = 10;
             // 
             // frmMovProduto
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Name = "frmMovProduto";
-            Text = "frmMovProduto";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(871, 450);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "frmMovProduto";
+            this.Text = "frmMovProduto";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

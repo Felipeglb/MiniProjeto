@@ -422,7 +422,57 @@ namespace MiniProjeto
             txtCodigo.Text = dataGridProduto.CurrentRow.Cells["id_Produto"].Value.ToString();
             CarregarDataGrid();
         }
-    }
 
+        private void txtValorC_Enter(object sender, EventArgs e)
+        {
+            txtValorC.Text = txtValorC.Text.Replace("R$ ", "");
+        }
+
+        private void txtValorC_Leave(object sender, EventArgs e)
+        {
+            float vCusto;
+            if (!float.TryParse(txtValorC.Text, out vCusto) && txtValorC.Text.Trim() != "")
+            {
+                MessageBox.Show("Erro. Valor de custo deve ser numérico e sem formato.");
+                txtValorC.Text = "";
+                txtValorC.Focus();
+                return;
+            }
+            else if (txtValorC.Text.Trim() == "")
+            {
+                txtValorC.Text = "";
+                return;
+            }
+
+            txtValorC.Text = String.Format("{0:C}", vCusto);
+        }
+
+        private void txtValorV_Leave(object sender, EventArgs e)
+        {
+            float vVenda;
+            if (!float.TryParse(txtValorV.Text, out vVenda) && txtValorV.Text.Trim() != "")
+            {
+                MessageBox.Show("Erro. Valor de custo deve ser numérico e sem formato.");
+                txtValorV.Text = "";
+                txtValorV.Focus();
+                return;
+            }
+            else if (txtValorV.Text.Trim() == "")
+            {
+                txtValorV.Text = "";
+                return;
+            }
+
+            txtValorV.Text = String.Format("{0:C}", vVenda);
+        }
+
+        private void txtValorV_Enter(object sender, EventArgs e)
+        {
+            txtValorV.Text = txtValorV.Text.Replace("R$ ", "");
+        }
+    }
 }
+
+
+
 

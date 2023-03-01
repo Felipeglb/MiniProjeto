@@ -300,6 +300,8 @@
             this.txtValorV.Name = "txtValorV";
             this.txtValorV.Size = new System.Drawing.Size(138, 23);
             this.txtValorV.TabIndex = 2;
+            this.txtValorV.Enter += new System.EventHandler(this.txtValorV_Enter);
+            this.txtValorV.Leave += new System.EventHandler(this.txtValorV_Leave);
             // 
             // txtValorC
             // 
@@ -307,6 +309,8 @@
             this.txtValorC.Name = "txtValorC";
             this.txtValorC.Size = new System.Drawing.Size(142, 23);
             this.txtValorC.TabIndex = 1;
+            this.txtValorC.Enter += new System.EventHandler(this.txtValorC_Enter);
+            this.txtValorC.Leave += new System.EventHandler(this.txtValorC_Leave);
             // 
             // label5
             // 
