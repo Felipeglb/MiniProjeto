@@ -246,7 +246,17 @@ namespace MiniProjeto
 
         private void btoPesquisar_Click(object sender, EventArgs e)
         {
-            string sql = "select * from Categoria where id_Categoria =" + txtCodigo.Text;
+            if (txtCodigo.Text.Trim() == "")
+            {
+                frmUsuarioPesquisa dor = new frmUsuarioPesquisa();
+                dor.ShowDialog();
+                txtCodigo.Text = dor._codigo;
+            }
+
+
+
+
+                string sql = "select * from Categoria where id_Categoria =" + txtCodigo.Text;
 
             SqlConnection conexao = new SqlConnection(stringConexao);
             SqlCommand cmd = new SqlCommand(sql, conexao);
