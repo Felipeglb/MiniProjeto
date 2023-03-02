@@ -279,11 +279,12 @@
             // mtbDataC
             // 
             this.mtbDataC.Location = new System.Drawing.Point(589, 32);
-            this.mtbDataC.Mask = "  /  /    ";
+            this.mtbDataC.Mask = "00/00/0000 90:00";
             this.mtbDataC.Name = "mtbDataC";
             this.mtbDataC.ReadOnly = true;
             this.mtbDataC.Size = new System.Drawing.Size(138, 23);
             this.mtbDataC.TabIndex = 5;
+            this.mtbDataC.ValidatingType = typeof(System.DateTime);
             // 
             // label6
             // 

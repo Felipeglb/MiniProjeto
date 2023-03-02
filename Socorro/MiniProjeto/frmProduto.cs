@@ -7,6 +7,7 @@ namespace MiniProjeto
     public partial class frmProduto : Form
     {
         string stringConexao = frmLogin.stringConexao;
+        
         private void TestarConexao()
         {
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -184,13 +185,9 @@ namespace MiniProjeto
 
         private void frmProduto_Load_1(object sender, EventArgs e)
         {
-
             TestarConexao();
-
             CarregarDataGrid();
             ComboBox();
-
-
         }
 
         private void btoCadastro2_Click_1(object sender, EventArgs e)
@@ -207,6 +204,13 @@ namespace MiniProjeto
             vVenda = vVenda.Replace(".", "");   //1000,00
             vVenda = vVenda.Replace(",", "."); //1000.00
 
+           
+
+
+            string Createdate = Convert.ToDateTime(DateTime.Parse(mtbDataC.Text)).ToString("dd/MM/yyyy h:mm tt");
+
+
+
             if (Validar())
             {
                 string sql = "insert into Produto  " +
@@ -214,22 +218,24 @@ namespace MiniProjeto
                    "Nome_Produto," + // 1
                     "ValorCusto_Produto," + // 2
                     "ValorVenda_Produto," + //3 
-                    "Status_Produto," + // 4
-                    "id_Categoria_Produto," + //5 
-                    "qtde_Produto," +// 7
-                    "descricao_Produto," + //8
-                    "Obs_Produto" + //9
+                    "dataCadastro_Produto"+// 4
+                    "Status_Produto," + //5 
+                    "id_Categoria_Produto," + // 7
+                    "qtde_Produto," +//8
+                    "descricao_Produto," + //9
+                    "Obs_Produto" + 
                     ")" +
                     "Values" +
                     "(" +
                     "'" + txtNome.Text + "'," + //1
                     "" + vCusto + "," + //2
                     "" + vVenda + "," + //3
-                    "'" + cboStatus.Text + "'," + //4
-                   "" + cboIDCate.Text + "," + // 5
-                    "" + txtQtde.Text + "," + //7 
-                    "'" + txtDesc.Text + "'," + // 8
-                    "'" + txtObs.Text + "'" +//9
+                    "" + mtbDataC + ","+//4
+                    "'" + cboStatus.Text + "'," + // 5
+                   "" + cboIDCate.Text + "," + //7 
+                    "" + txtQtde.Text + "," + // 8
+                    "'" + txtDesc.Text + "'," + //9
+                    "'" + txtObs.Text + "'" +
 
                     ")" + "Select SCOPE_Identity()";
                 SqlConnection conn = new SqlConnection(stringConexao);
@@ -282,6 +288,8 @@ namespace MiniProjeto
             vVenda = vVenda.Replace("R$ ", ""); //1.000,00
             vVenda = vVenda.Replace(".", "");   //1000,00
             vVenda = vVenda.Replace(",", "."); //1000.00
+
+            string Createdate = Convert.ToDateTime(DateTime.Parse(mtbDataC.Text)).ToString("dd/MM/yyyy h:mm tt");
 
             string sql = "update  Produto set " +
 "nome_Produto= '" + txtNome.Text + "'," +
@@ -362,6 +370,8 @@ namespace MiniProjeto
             }
         }
 
+
+
         private void btoPesquisar_Click(object sender, EventArgs e)
         {
 
@@ -387,6 +397,7 @@ namespace MiniProjeto
                     txtNome.Text = reader[1].ToString();
 
                     txtValorC.Text = reader[2].ToString();
+                    string test = txtValorC.Text;
                     txtValorC.Text = String.Format("{0:C}", float.Parse(txtValorC.Text));
 
                     txtValorV.Text = reader[3].ToString();
@@ -428,6 +439,8 @@ namespace MiniProjeto
             txtValorC.Text = txtValorC.Text.Replace("R$ ", "");
         }
 
+
+
         private void txtValorC_Leave(object sender, EventArgs e)
         {
             float vCusto;
@@ -447,6 +460,7 @@ namespace MiniProjeto
             txtValorC.Text = String.Format("{0:C}", vCusto);
         }
 
+        
         private void txtValorV_Leave(object sender, EventArgs e)
         {
             float vVenda;
@@ -470,6 +484,7 @@ namespace MiniProjeto
         {
             txtValorV.Text = txtValorV.Text.Replace("R$ ", "");
         }
+
     }
 }
 
