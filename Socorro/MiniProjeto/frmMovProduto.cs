@@ -94,7 +94,7 @@ namespace MiniProjeto
                 con.Close();
             }
         }
-       private void ComboBoxUser()
+        private void ComboBoxUser()
         {
             string sql = "select nome_Usuario, id_Usuario  from Produto";
             SqlConnection con = new SqlConnection(stringConexao);
@@ -116,7 +116,7 @@ namespace MiniProjeto
                 cboIDProd.DisplayMember = "id_Usuario";
                 cboIDProd.DataSource = tabela;
 
-               
+
 
 
             }
@@ -201,6 +201,71 @@ namespace MiniProjeto
         {
             Limpar();
         }
+
+        private void btoOk_Click(object sender, EventArgs e)
+        {
+            string Createdate = Convert.ToDateTime(DateTime.Parse(mtbDataC.Text)).ToString("dd/MM/yyyy h:mm tt");
+
+
+
+            if (Validar())
+            {
+                string sql = "insert into MovProduto  " +
+        "(" +
+                   "Nome_MovProduto," + // 1
+                    "ValorCusto_MovProduto," + // 2
+                    "ValorVenda_MovProduto," + //3 
+                    "dataCadastro_MovProduto" +// 4
+                    "Status_MovProduto," + //5 
+                    "id_Categoria_MovProduto," + // 7
+                    "qtde_MovProduto," +//8
+                    "descricao_MovProduto," + //9
+                    "Obs_MovProduto" +
+                    ")" +
+                    "Values" +
+                    "(" +
+                    "'" + mtbDataC.Text + "'," + //1
+                    "" + cboNomeProd.Text + "," + //2
+                    "" + cboIDProd.Text + "," + //3
+                    "" + cboNomeUsu.Text + "," +//4
+                    "'" + cboIDUser.Text + "'," + // 5
+                   "" + cboQtdeEstoque.Text + "," + //7 
+                    "" + cboTipoMov.Text + "," + // 8
+                    "'" + txtQtdeMovimentada + "'," + //9
+                    "'" + cboStatus.Text + "'," +
+                    "'" + txtObs.Text + "'" +
+
+                    ")" + "Select SCOPE_Identity()";
+                SqlConnection conn = new SqlConnection(stringConexao);
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader reader;
+                conn.Open();
+
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Limpar();
+                        txtCodigo.Text = reader[0].ToString();
+                        btoPesquisar.PerformClick();
+                        MessageBox.Show("Cadastro realizado com sucesso", "Código Gerado:" + reader[0].ToString());
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.ToString());
+                }
+                finally
+                {
+                    CarregarDataGrid();
+                    conn.Close();
+                }
+            }
+        }
+    }
     }
 }
 
